@@ -1,37 +1,6 @@
-import logo from "../assets/images/logo.png";
-import React from "react";
-import useMediaQuery from "@mui/material/useMediaQuery";
+import React, { useState } from "react";
 
-/*  return <span>{`(min-width:600px) matches: ${matches}`}</span>;
-}*/
-
-function Navigation() {
-  const isPhone = useMediaQuery("(max-width:768px)");
-
-  return (
-    <nav>
-      <img src={logo} alt="logo" style={{ height: "2.5rem" }} />
-      <ul>
-        <li>
-          <a href="#">Réalisations</a>
-        </li>
-        <li>
-          <a href="#">Nos Packs</a>
-        </li>
-        <li>
-          <a href="#">Contact</a>
-        </li>
-      </ul>
-      {isPhone && (
-        <div className="hamburgerMenu">
-          <span>a</span>
-          <span>b</span>
-          <span>c</span>
-        </div>
-      )}
-    </nav>
-  );
-}
+import Navigation from "./Navigation";
 
 function Header() {
   return (
