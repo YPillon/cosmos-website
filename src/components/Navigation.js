@@ -7,7 +7,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 
 function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const isPhone = useMediaQuery("(max-width:768px)");
+  const isTabletOrPhone = useMediaQuery("(max-width:1024px)");
 
   const NavLink = styled.a`
     font-size: 3rem;
@@ -59,9 +59,9 @@ function Navigation() {
 
   let navPhoneStyle;
 
-  if (isPhone && !isMenuOpen) {
+  if (isTabletOrPhone && !isMenuOpen) {
     navPhoneStyle = { flexDirection: "column", alignItems: "center" };
-  } else if (isPhone && isMenuOpen) {
+  } else if (isTabletOrPhone && isMenuOpen) {
     navPhoneStyle = {
       flexDirection: "column",
       height: "100vh",
@@ -76,7 +76,7 @@ function Navigation() {
 
   let ulStyle;
 
-  if (isPhone && !isMenuOpen) {
+  if (isTabletOrPhone && !isMenuOpen) {
     ulStyle = {
       transform: "translateY(-40rem)",
       flexDirection: "column",
@@ -84,7 +84,7 @@ function Navigation() {
       transition: "0.5s 0.25s linear",
       height: "100vh",
     };
-  } else if (isPhone && isMenuOpen) {
+  } else if (isTabletOrPhone && isMenuOpen) {
     ulStyle = {
       transform: "translateY(130px)",
       flexDirection: "column",
@@ -148,8 +148,8 @@ function Navigation() {
       <a
         href="#"
         style={{
-          width: isPhone ? "100%" : "fit-content",
-          marginTop: isPhone ? "1.4rem" : "0",
+          width: isTabletOrPhone ? "100%" : "fit-content",
+          marginTop: isTabletOrPhone ? "1.4rem" : "0",
           position: "relative",
         }}
       >
@@ -160,11 +160,11 @@ function Navigation() {
             height: "7rem",
             width: "auto",
             display: "block",
-            position: isPhone ? "absolute" : "inherit",
+            position: isTabletOrPhone ? "absolute" : "inherit",
             top: "0%",
-            left: isPhone && isMenuOpen ? "50%" : "0",
+            left: isTabletOrPhone && isMenuOpen ? "50%" : "0",
             transform:
-              isPhone && isMenuOpen
+              isTabletOrPhone && isMenuOpen
                 ? "translate(-50%, 200%) scale(1.1)"
                 : "translateX(0)",
             transition: "all 0.75s 0.15s ease-in-out",
@@ -172,17 +172,17 @@ function Navigation() {
         />
       </a>
       <ul style={ulStyle}>
-        <NavLi style={{ margin: isPhone ? "0 0 4rem" : "0 0 0 4.5rem" }}>
+        <NavLi style={{ margin: isTabletOrPhone ? "0 0 4rem" : "0 0 0 4.5rem" }}>
           <NavLink href="#">Réalisations</NavLink>
         </NavLi>
-        <NavLi style={{ margin: isPhone ? "0 0 4rem" : "0 0 0 4.5rem" }}>
+        <NavLi style={{ margin: isTabletOrPhone ? "0 0 4rem" : "0 0 0 4.5rem" }}>
           <NavLink href="#">Nos Packs</NavLink>
         </NavLi>
-        <NavLi style={{ margin: isPhone ? "0 0 4rem" : "0 0 0 4.5rem" }}>
+        <NavLi style={{ margin: isTabletOrPhone ? "0 0 4rem" : "0 0 0 4.5rem" }}>
           <NavLink href="#">Contact</NavLink>
         </NavLi>
       </ul>
-      {isPhone && (
+      {isTabletOrPhone && (
         <div
           className="hamburgerMenu"
           style={{

@@ -18,6 +18,22 @@ html {
   background-image: url(../images/fond.jpg);
   background-repeat: no-repeat;
   background-size: 100%;
+  background-position: center;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  html {
+    background-size: auto 105%;
+    background-position-x: 6%;
+    background-position-y: 101%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    background-size: cover;
+    background-position: 30% 0%;
+  }
 }
 
 body {
@@ -45,26 +61,6 @@ ul {
 
 a {
   text-decoration: none;
-}
-
-h1 {
-  font-size: 8rem;
-  background: linear-gradient(to right, #3f008d, #2b66e9, #fa8128);
-  background-clip: text;
-  color: transparent;
-  width: fit-content;
-  -webkit-text-stroke: #3f008d 0.23rem;
-}
-
-.arrow span {
-  position: absolute;
-  height: 8rem;
-  width: 1rem;
-  border: 0.2rem #3f008d solid;
-  background-color: #fa8128;
-  left: 50%;
-  bottom: 5%;
-  box-shadow: #fa8128 -1px 0px 2px;
 }
 
 /*article {
