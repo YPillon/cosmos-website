@@ -21,7 +21,6 @@ function Article(props) {
     */
 
   const isPhone = useMediaQuery("(max-width:768px)");
-  const isTablet = useMediaQuery("(min-width: 769px) and (max-width:1024px)");
 
   let backgroundColor;
 

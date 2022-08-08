@@ -7,6 +7,7 @@ import "./components/Header";
 import Header from "./components/Header";
 import Button from "./components/Button";
 import Article from "./components/Article";
+import Review from "./components/Review";
 import Footer from "./components/Footer";
 
 import designImage from "./assets/images/design.png";
@@ -15,6 +16,8 @@ import happyImage from "./assets/images/happy-woman.png";
 import background3 from "./assets/images/bacground-images/background2.jpg";
 import background2 from "./assets/images/bacground-images/background7.jpg";
 import background1 from "./assets/images/bacground-images/background8.jpg";
+
+import lEngelmann from "./assets/images/louise-engelmann.jpg";
 
 function App() {
   const isPhone = useMediaQuery("(max-width:768px)");
@@ -75,6 +78,12 @@ function App() {
           Il nous tient à cœur de vous offrir la meilleure expérience possible. Nous nous adaptons entièrement à votre budget et à vos besoins !"
           img={secondImage}
           imgStyle={{ width: "auto", height: "100%" }}
+        />
+        <Review
+          text="« Nous avons fait appel à Cosmos pour ajouter des fonctionnalités sur notre boutique en ligne et nous avons été entièrement satisfaits par le rendu. Ils ont parfaitement compris ce que nous voulions et l'ont réalisé avec professionnalisme. »"
+          img={lEngelmann}
+          name="Louise Engelmann"
+          job="Directeur général chez Woodifull"
         />
         <Button text="Contacter l'agence"></Button>
       </main>
