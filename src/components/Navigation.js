@@ -155,7 +155,7 @@ function Navigation() {
       >
         <img
           src={logo}
-          alt="logo"
+          alt="logo de l'agence Cosmos"
           style={{
             height: "7rem",
             width: "auto",

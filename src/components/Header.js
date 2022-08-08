@@ -18,7 +18,7 @@ function Header(props) {
     color: transparent;
     width: fit-content;
     -webkit-text-stroke: #3f008d 0.18rem;
-    margin-top: 35.8vh;
+    padding-top: 35.8vh;
   `;
 
   const subtitle = props.subtitle ? (
@@ -29,25 +29,25 @@ function Header(props) {
     ""
   );
 
-  let titleStyle;
+  let titleResponsive;
 
   if (isTablet) {
-    titleStyle = {
-      marginTop: "30vh",
+    titleResponsive = {
+      paddingTop: "30vh",
     };
   } else if (isPhone) {
-    titleStyle = { fontSize: "6rem", marginTop: "30vh" };
+    titleResponsive = { fontSize: "6rem", paddingTop: "30vh" };
   } else {
-    titleStyle = {};
+    titleResponsive = {};
   }
 
   return (
-    <header>
+    <header style={{ height: "100vh" }}>
       <Navigation />
-      <Title style={titleStyle}>{props.title}</Title>
+      <Title style={titleResponsive}>{props.title}</Title>
       {subtitle}
       <Button text="C'est parti !" />
-      <AnimatedArrow />
+      <AnimatedArrow link="#main" />
     </header>
   );
 }
