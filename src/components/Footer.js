@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import styled, { keyframes } from "styled-components";
 import { useMediaQuery } from "@mui/material";
@@ -34,7 +35,7 @@ function Footer() {
     return date.getFullYear();
   };
 
-  const FooterLink = styled.a`
+  const FooterSpan1 = styled.span`
     width: fit-content;
     transition: all 0.25s ease-out;
     &:hover {
@@ -89,13 +90,13 @@ function Footer() {
           : "1fr 1fr 1fr",
       }}
     >
-      <a href="" style={{ gridColumn: "1", gridRow: "1 / 2" }}>
+      <Link to="/" style={{ gridColumn: "1", gridRow: "1 / 2" }}>
         <img
           src={logo}
           alt="logo de l'agence Cosmos"
           style={{ height: "7rem" }}
         />
-      </a>
+      </Link>
       <span
         style={{
           fontSize: "1.5rem",
@@ -105,16 +106,16 @@ function Footer() {
       >
         Tous droits réservés ©️ {dateBuilder()}
       </span>
-      <FooterLink
-        href=""
+      <Link
+        to="/achievements"
         style={{
           gridColumn: isTabletOrPhone ? "1" : "2",
           gridRow: isTabletOrPhone ? "3" : "1",
         }}
       >
-        Réalisations
-      </FooterLink>
-      <FooterLink
+        <FooterSpan1>Réalisations</FooterSpan1>
+      </Link>
+      <FooterSpan1
         href=""
         style={{
           gridColumn: isTabletOrPhone ? "1" : "2",
@@ -122,8 +123,8 @@ function Footer() {
         }}
       >
         Nos Packs
-      </FooterLink>
-      <FooterLink
+      </FooterSpan1>
+      <FooterSpan1
         href=""
         style={{
           gridColumn: isTabletOrPhone ? "1" : "2",
@@ -131,8 +132,8 @@ function Footer() {
         }}
       >
         Contact
-      </FooterLink>
-      <FooterLink
+      </FooterSpan1>
+      <FooterSpan1
         href=""
         target="_blank"
         style={{
@@ -141,7 +142,7 @@ function Footer() {
         }}
       >
         Instagram
-      </FooterLink>
+      </FooterSpan1>
       <FooterSpan
         style={{
           gridColumn: isTabletOrPhone ? "1" : "3",

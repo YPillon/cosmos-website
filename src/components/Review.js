@@ -1,8 +1,6 @@
 import React from "react";
 
 import styled from "styled-components";
-import { useMediaQuery } from "@mui/material";
-import { border } from "@mui/system";
 
 function Review(props) {
   const Article = styled.article`

@@ -46,7 +46,7 @@ function Article(props) {
     titleUnderlineColor = "#252525";
   }
 
-  const articleHeight = isPhone ? "fit-content" : "30rem";
+  const articleHeight = isPhone ? "fit-content" : "35rem";
 
   let backgroundImg = props.backgroundImg ? props.backgroundImg : "";
 
@@ -55,7 +55,8 @@ function Article(props) {
     margin: 7rem 0;
     width: auto;
     height: ${articleHeight};
-    background-image: linear-gradient(${backgroundColor}, ${backgroundColor}), url(${backgroundImg});
+    background-image: linear-gradient(${backgroundColor}, ${backgroundColor}),
+      url(${backgroundImg});
     background-position: center;
     background-size: cover;
     display: flex;
@@ -90,7 +91,7 @@ function Article(props) {
         style={{
           padding: "3rem",
           width: props.img ? "61.5%" : "100%",
-          height: "fit-content",
+          height: "100%",
         }}
       >
         <Title
@@ -104,7 +105,7 @@ function Article(props) {
         <p
           style={{
             fontSize: "1.8rem",
-            margin: "1rem 0",
+            margin: "4rem 0 3rem",
             color: props.backgroundColor === "purple" ? "white" : "#252525",
             textAlign: "justify",
           }}
@@ -113,7 +114,12 @@ function Article(props) {
         </p>
 
         {props.buttonText && (
-          <Button text={props.buttonText} link={props.buttonLink} />
+          <Button
+            text={props.buttonText}
+            link={props.buttonLink}
+            size="small"
+            blank="true"
+          />
         )}
       </div>
 

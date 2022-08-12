@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import logo from "../assets/images/logo.png";
 
@@ -9,7 +10,7 @@ function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isTabletOrPhone = useMediaQuery("(max-width:1024px)");
 
-  const NavLink = styled.a`
+  const NavSpan = styled.span`
     font-size: 3rem;
     color: white;
     -webkit-text-stroke: 0.15rem #2b66e9;
@@ -145,8 +146,8 @@ function Navigation() {
 
   return (
     <nav style={{ ...navStyle, ...navPhoneStyle }}>
-      <a
-        href="#"
+      <Link
+        to="/"
         style={{
           width: isTabletOrPhone ? "100%" : "fit-content",
           marginTop: isTabletOrPhone ? "1.4rem" : "0",
@@ -170,16 +171,33 @@ function Navigation() {
             transition: "all 0.75s 0.15s ease-in-out",
           }}
         />
-      </a>
-      <ul style={ulStyle}>
-        <NavLi style={{ margin: isTabletOrPhone ? "0 0 4rem" : "0 0 0 4.5rem" }}>
-          <NavLink href="#">Réalisations</NavLink>
+      </Link>
+      <ul
+        style={{
+          ...ulStyle,
+          listStyleType: "none",
+          display: "flex",
+          transition: "linear 1s",
+        }}
+      >
+        <NavLi
+          style={{ margin: isTabletOrPhone ? "0 0 4rem" : "0 0 0 4.5rem" }}
+        >
+          <Link to="/achievements">
+            <NavSpan href="#">Réalisations</NavSpan>
+          </Link>
         </NavLi>
-        <NavLi style={{ margin: isTabletOrPhone ? "0 0 4rem" : "0 0 0 4.5rem" }}>
-          <NavLink href="#">Nos Packs</NavLink>
+        <NavLi
+          style={{ margin: isTabletOrPhone ? "0 0 4rem" : "0 0 0 4.5rem" }}
+        >
+          <Link to="/packs">
+            <NavSpan>Nos Packs</NavSpan>
+          </Link>
         </NavLi>
-        <NavLi style={{ margin: isTabletOrPhone ? "0 0 4rem" : "0 0 0 4.5rem" }}>
-          <NavLink href="#">Contact</NavLink>
+        <NavLi
+          style={{ margin: isTabletOrPhone ? "0 0 4rem" : "0 0 0 4.5rem" }}
+        >
+          <NavSpan href="#">Contact</NavSpan>
         </NavLi>
       </ul>
       {isTabletOrPhone && (
