@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { useMediaQuery } from "@mui/material";
 
 import logo from "../assets/images/logo.png";
+import { slideDownAndUp } from "../assets/js/functions";
 
 function Footer() {
   const [isEmailCopied, setIsEmailCopied] = useState(false);
@@ -50,22 +51,6 @@ function Footer() {
     transition: all 0.25s ease-out;
     &:hover {
       color: #fa8128;
-    }
-  `;
-
-  const slideDownAndUp = keyframes`
-    0%, 100% {
-      transform: translateY(-5rem);
-      opacity: 0;
-    }
-    15%, 85% {
-      transform: translateY(1rem);
-      opacity: 1;
-    }
-    
-    20%, 80% {
-      transform: translateY(0);
-      opacity: 1;
     }
   `;
 
@@ -162,7 +147,7 @@ function Footer() {
           gridRow: isTabletOrPhone ? "8" : "3",
         }}
         title="Cliquez pour copiez le numéro de téléphone"
-        onClick={(e) => copyToClipboard("0611441471", "phone")}
+        onClick={(e) => copyToClipboard("+33611441471", "phone")}
       >
         0611441471
         <CopiedSpan style={{ display: isPhoneCopied ? "block" : "none" }}>

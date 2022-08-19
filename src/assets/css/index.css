@@ -57,3 +57,29 @@ a {
 b {
   font-weight: bold;
 }
+
+input,
+textarea,
+select {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px solid #252525;
+  margin: 0rem 0 3rem;
+  font-size: 1.5rem;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  margin: 0 1rem 0.5rem;
+}
+
+div[role="group"] > label:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}

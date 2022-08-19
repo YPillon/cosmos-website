@@ -18,7 +18,7 @@ function Pack(props) {
     */
 
   const Name = styled.h3`
-    font-size: 5rem;
+    font-size: 4rem;
     position: relative;
     width: fit-content;
     margin: 1rem 0 3rem;
@@ -65,7 +65,7 @@ function Pack(props) {
       <ServicesList array={props.options} />
 
       <div style={{ textAlign: "center", margin: "7rem 0 0" }}>
-        <Button text="Je choisis ce pack" link="/contact" />
+        <Button text="Je choisis ce pack" link="/contact" internLink="true" />
       </div>
     </article>
   );

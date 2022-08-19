@@ -29,10 +29,17 @@ function PacksPage(props) {
       <Header
         title="Nos packs"
         subtitle="Optez pour la simplicité avec un de nos packs clé en main."
+        buttonText="Voir les packs"
+        buttonLink="#main"
       />
       <Main>
         <h2
-          style={{ fontSize: "5rem", textAlign: "center", marginTop: "7rem" }}
+          style={{
+            fontSize: "4rem",
+            fontWeight: "normal",
+            textAlign: "center",
+            marginTop: "7rem",
+          }}
         >
           Nous proposons des packs clé en main correspondant aux demandes les
           plus fréquentes que nous avons rencontrées: Le pack{" "}
@@ -70,7 +77,7 @@ function PacksPage(props) {
         <Pack
           title="Pack « Réservation en ligne »"
           anchor="reservation"
-          description="Idéal si vous voulez gagner du temps en proposant un service de réservation 100 % en ligne. 
+          description="Idéal si vous voulez gagner du temps en proposant un service de réservation 100% en ligne. 
           Plus besoin de gérer les réservations par téléphone et d’être coupés au milieu de votre travail. 
           Vous êtes donc plus disponibles pour les clients présents dans votre salon et vous pouvez leur offrir une expérience encore plus privilégiée !
           Vos clients peuvent réserver 24h/24 sur mobile, tablette et ordinateur et choisir en un clin d’œil un créneau disponible et le membre de votre équipe qui s’occupera d’eux !

@@ -26,7 +26,12 @@ function Homepage() {
 
   return (
     <>
-      <Header title="Passez au niveau supérieur." />
+      <Header
+        title="Passez au niveau supérieur."
+        buttonText="C'est parti !"
+        buttonLink="/contact"
+        buttonInternLink="true"
+      />
       <Main>
         <Article
           backgroundColor="blue"
@@ -50,7 +55,7 @@ function Homepage() {
           Chez Cosmos, nous avons fait le choix d’un service totalement personnalisé pour répondre avec précision à vos besoins, c’est pourquoi nous faisons du 100% sur-mesure. Sans fioritures. Juste l’essentiel.
           Il nous tient à cœur de vous offrir la meilleure expérience possible. Nous nous adaptons entièrement à votre budget et à vos besoins !"
         />
-        <Button text="Voir nos packs"></Button>
+        <Button text="Voir nos packs" link="/packs" internLink="true"></Button>
         <Article
           backgroundColor="orange"
           backgroundImg={background3}
@@ -69,7 +74,11 @@ function Homepage() {
           name="Louise Engelmann"
           job="Directeur général chez Woodifull"
         />
-        <Button text="Contacter l'agence"></Button>
+        <Button
+          text="Contacter l'agence"
+          link="/contact"
+          internLink="true"
+        ></Button>
       </Main>
     </>
   );

@@ -33,9 +33,9 @@ function Header(props) {
   `;
 
   const subtitle = props.subtitle ? (
-    <React.Fragment>
+    <>
       <Subtitle>{props.subtitle}</Subtitle>
-    </React.Fragment>
+    </>
   ) : (
     ""
   );
@@ -57,7 +57,13 @@ function Header(props) {
       <Navigation />
       <Title style={titleResponsive}>{props.title}</Title>
       {subtitle}
-      <Button text="C'est parti !" />
+      {props.buttonLink && (
+        <Button
+          text={props.buttonText}
+          link={props.buttonLink}
+          internLink={props.buttonInternLink}
+        />
+      )}
       <AnimatedArrow link="#main" />
     </header>
   );

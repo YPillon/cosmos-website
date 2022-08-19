@@ -147,7 +147,7 @@ function Navigation() {
   return (
     <nav style={{ ...navStyle, ...navPhoneStyle }}>
       <Link
-        to="/"
+        to="/#header"
         style={{
           width: isTabletOrPhone ? "100%" : "fit-content",
           marginTop: isTabletOrPhone ? "1.4rem" : "0",
@@ -197,7 +197,9 @@ function Navigation() {
         <NavLi
           style={{ margin: isTabletOrPhone ? "0 0 4rem" : "0 0 0 4.5rem" }}
         >
-          <NavSpan href="#">Contact</NavSpan>
+          <Link to="/contact">
+            <NavSpan href="#">Contact</NavSpan>
+          </Link>
         </NavLi>
       </ul>
       {isTabletOrPhone && (

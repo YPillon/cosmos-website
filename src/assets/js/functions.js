@@ -1,3 +1,31 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { keyframes } from "styled-components";
+
+export default function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+}
+
+export const slideDownAndUp = keyframes`
+    0%, 100% {
+      transform: translateY(-5rem);
+      opacity: 0;
+    }
+    15%, 85% {
+      transform: translateY(1rem);
+      opacity: 1;
+    }
+    
+    20%, 80% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  `;
+
 const includedInOnepageArray = [
   "Réunion en visioconférence ou en physique pour définir votre projet ensemble",
   "Présentation de 2 modèles « types » de sites",

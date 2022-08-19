@@ -40,11 +40,20 @@ function Button(props) {
   const blankOrNotBlank = props.blank ? "_blank" : "_self";
 
   const link = props.link ? props.link : "/";
-  
+
   return (
-    <Link to={link} target={blankOrNotBlank}>
-      <Button style={smallStyle}>{props.text}</Button>
-    </Link>
+    <>
+      {props.internLink === "true" && (
+        <Link to={link} target={blankOrNotBlank}>
+          <Button style={smallStyle}>{props.text}</Button>
+        </Link>
+      )}
+      {props.internLink !== "true" && (
+        <a href={link} target={blankOrNotBlank}>
+          <Button style={smallStyle}>{props.text}</Button>
+        </a>
+      )}
+    </>
   );
 }
 
