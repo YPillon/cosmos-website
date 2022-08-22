@@ -100,34 +100,39 @@ function Footer() {
       >
         <FooterSpan1>Réalisations</FooterSpan1>
       </Link>
-      <FooterSpan1
-        href=""
+
+      <Link
+        to="/packs"
         style={{
           gridColumn: isTabletOrPhone ? "1" : "2",
           gridRow: isTabletOrPhone ? "4" : "2",
         }}
       >
-        Nos Packs
-      </FooterSpan1>
-      <FooterSpan1
-        href=""
+        <FooterSpan1>Nos Packs</FooterSpan1>
+      </Link>
+
+      <Link
+        to="/contact"
         style={{
           gridColumn: isTabletOrPhone ? "1" : "2",
           gridRow: isTabletOrPhone ? "5" : "3",
         }}
       >
-        Contact
-      </FooterSpan1>
-      <FooterSpan1
-        href=""
+        <FooterSpan1>Contact</FooterSpan1>
+      </Link>
+
+      <a
+        href="https://www.instagram.com/cosmosagency.fr/"
         target="_blank"
+        rel="noreferrer"
         style={{
           gridColumn: isTabletOrPhone ? "1" : "3",
           gridRow: isTabletOrPhone ? "6" : "1",
         }}
       >
-        Instagram
-      </FooterSpan1>
+        <FooterSpan1>Instagram</FooterSpan1>
+      </a>
+
       <FooterSpan
         style={{
           gridColumn: isTabletOrPhone ? "1" : "3",

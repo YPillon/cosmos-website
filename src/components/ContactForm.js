@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import emailjs from "@emailjs/browser";
 
 import { useMediaQuery } from "@mui/material";
 
@@ -36,6 +37,9 @@ const FormSchema = Yup.object().shape({
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 export const ContactForm = () => {
+  const [isFormSent, setIsFormSent] = useState(false);
+  const [buttonText, setButtonText] = useState("Envoyer");
+
   const isPhone = useMediaQuery("(max-width:768px)");
 
   const FormTitle = styled.h1`
@@ -103,6 +107,24 @@ export const ContactForm = () => {
       }
     `;
 
+  const slideDown = keyframes`
+    0% {
+      transform: translateY(-5rem);
+      opacity: 0;
+    }
+    
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  `;
+
+  const SuccessMessage = styled.p`
+    text-align: center;
+    color: #3f008d;
+    animation: ${slideDown} 0.5s ease-in-out;
+  `;
+
   return (
     <>
       <Formik
@@ -119,10 +141,32 @@ export const ContactForm = () => {
           address: "",
         }}
         validationSchema={FormSchema}
-        onSubmit={async (values) => {
+        onSubmit={async (values, { resetForm }) => {
+          setButtonText("Envoi...");
+
           await sleep(500);
 
-          alert(JSON.stringify(values, null, 2));
+          
+
+          emailjs
+            .send(
+              "contact_service",
+              "contact_form",
+              values,
+              "cggYbpPD7dRt2uMsj"
+            )
+            .then(
+              (result) => {
+                console.log(result.text);
+                setIsFormSent(true);
+                setButtonText('Envoyer');
+                resetForm();
+              },
+              (error) => {
+                console.log(error.text);
+                setButtonText('Envoyer');
+              }
+            );
         }}
       >
         {({ errors, touched }) => (
@@ -388,7 +432,15 @@ export const ContactForm = () => {
             {errors.length > 0 && touched ? (
               <ErrorMessage>Veuillez tout remplir</ErrorMessage>
             ) : null}
-            <Button type="submit">Envoyer</Button>
+            <Button type="submit">{buttonText}</Button>
+            {isFormSent && (
+              <SuccessMessage>
+                Merci ! Nous avons bien reçu votre demande de devis et nous vous
+                recontacterons dans les plus brefs délais. <br />
+                Pour toute demande complémentaire, n'hésitez pas à nous écrire
+                par mail à contact@cosmosagency.fr&nbsp;!
+              </SuccessMessage>
+            )}
           </Form>
         )}
       </Formik>
