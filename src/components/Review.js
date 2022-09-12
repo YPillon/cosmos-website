@@ -2,23 +2,23 @@ import React from "react";
 
 import styled from "styled-components";
 
+const Article = styled.article`
+  border-radius: 1rem;
+  margin: 7rem 0;
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const MainText = styled.p`
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 3rem 0;
+`;
+
 function Review(props) {
-  const Article = styled.article`
-    border-radius: 1rem;
-    margin: 7rem 0;
-    width: auto;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  `;
-
-  const MainText = styled.p`
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin: 3rem 0;
-  `;
-
   const altText = `Photo de ${props.name}`;
 
   return (

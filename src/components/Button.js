@@ -1,21 +1,9 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { Link } from "react-router-dom";
-
-function Button(props) {
-  let smallStyle = {};
-
-  if (props.size === "small") {
-    smallStyle = {
-      fontSize: "1.5rem",
-      margin: "0",
-      padding: "0.1rem 0.8rem",
-    };
-  }
-
-  const Button = styled.button`
+const StyledButton = styled.button`
       font-size: 3rem;
       padding: 0.2rem 1.2rem;
       margin: 5rem 0;
@@ -37,6 +25,17 @@ function Button(props) {
       }
     `;
 
+function Button(props) {
+  let smallStyle = {};
+
+  if (props.size === "small") {
+    smallStyle = {
+      fontSize: "1.5rem",
+      margin: "0",
+      padding: "0.1rem 0.8rem",
+    };
+  }
+
   const blankOrNotBlank = props.blank ? "_blank" : "_self";
 
   const link = props.link ? props.link : "/";
@@ -44,13 +43,13 @@ function Button(props) {
   return (
     <>
       {props.internLink === "true" && (
-        <Link to={link} target={blankOrNotBlank}>
-          <Button style={smallStyle}>{props.text}</Button>
+        <Link to={props.link}>
+          <StyledButton style={smallStyle}>{props.text}</StyledButton>
         </Link>
       )}
       {props.internLink !== "true" && (
         <a href={link} target={blankOrNotBlank}>
-          <Button style={smallStyle}>{props.text}</Button>
+          <StyledButton style={smallStyle}>{props.text}</StyledButton>
         </a>
       )}
     </>

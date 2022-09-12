@@ -5,6 +5,45 @@ import { useMediaQuery } from "@mui/material";
 
 import Button from "./Button";
 
+const StyledArticle = styled.article`
+  border-radius: 1rem;
+  margin: 7rem 0;
+  width: auto;
+  height: ${(props) => props.articleHeight};
+  min-height: 35rem;
+  background-image: linear-gradient(
+      ${(props) => props.backgroundColor},
+      ${(props) => props.backgroundColor}
+    ),
+    url(${(props) => props.backgroundImg});
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  text-align: left;
+`;
+
+const Title = styled.h3`
+  font-size: 3rem;
+  position: relative;
+  width: fit-content;
+  margin: 1rem 0 3rem;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -1.2rem;
+    left: 0%;
+    width: 10rem;
+    height: 0.3rem;
+    background: white;
+    border: solid ${(props) => props.titleUnderlineColor} 0.2rem;
+    border-radius: 1rem;
+  }
+`;
+
+const Aside = styled.aside`
+  width: 400px;
+`;
+
 function Article(props) {
   /*
     props are:
@@ -21,13 +60,17 @@ function Article(props) {
     */
 
   const isPhone = useMediaQuery("(max-width:768px)");
+  const isTablet = useMediaQuery("(min-width: 769px) and (max-width:1024px)");
+  const isSmallDesktop = useMediaQuery(
+    "(min-width: 1025px) and (max-width:1300px)"
+  );
 
   let backgroundColor;
 
   if (props.backgroundColor === "blue") {
-    backgroundColor = "#2b67e899";
+    backgroundColor = "#2b67e8cc";
   } else if (props.backgroundColor === "purple") {
-    backgroundColor = "#3f008d99";
+    backgroundColor = "#3f008dcc";
   } else if (props.backgroundColor === "orange") {
     backgroundColor = "#fa8029cc";
   } else {
@@ -46,47 +89,16 @@ function Article(props) {
     titleUnderlineColor = "#252525";
   }
 
-  const articleHeight = isPhone ? "fit-content" : "35rem";
+  const articleHeight = isPhone || isTablet || isSmallDesktop ? "fit-content" : "36rem";
 
   let backgroundImg = props.backgroundImg ? props.backgroundImg : "";
 
-  const Article = styled.article`
-    border-radius: 1rem;
-    margin: 7rem 0;
-    width: auto;
-    height: ${articleHeight};
-    background-image: linear-gradient(${backgroundColor}, ${backgroundColor}),
-      url(${backgroundImg});
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    text-align: left;
-  `;
-
-  const Title = styled.h3`
-    font-size: 3rem;
-    position: relative;
-    width: fit-content;
-    margin: 1rem 0 3rem;
-    &::before {
-      content: "";
-      position: absolute;
-      bottom: -1.2rem;
-      left: 0%;
-      width: 10rem;
-      height: 0.3rem;
-      background: white;
-      border: solid ${titleUnderlineColor} 0.2rem;
-      border-radius: 1rem;
-    }
-  `;
-
-  const Aside = styled.aside`
-    width: 400px;
-  `;
-
   return (
-    <Article>
+    <StyledArticle
+      articleHeight={articleHeight}
+      backgroundColor={backgroundColor}
+      backgroundImg={backgroundImg}
+    >
       <div
         style={{
           padding: "3rem",
@@ -95,6 +107,7 @@ function Article(props) {
         }}
       >
         <Title
+          titleUnderlineColor={titleUnderlineColor}
           style={{
             color: props.backgroundColor === "purple" ? "white" : "#252525",
           }}
@@ -105,13 +118,38 @@ function Article(props) {
         <p
           style={{
             fontSize: "1.8rem",
-            margin: "4rem 0 3rem",
+            margin: props.text2 ? "4rem 0 2rem" : "4rem 0 3rem",
             color: props.backgroundColor === "purple" ? "white" : "#252525",
             textAlign: "justify",
           }}
         >
           {props.text}
         </p>
+        {props.text2 && (
+          <p
+            style={{
+              fontSize: "1.8rem",
+              margin: props.text3 ? "0 0 2rem" : "0 0 3rem",
+              color: props.backgroundColor === "purple" ? "white" : "#252525",
+              textAlign: "justify",
+            }}
+          >
+            {props.text2}
+          </p>
+        )}
+
+        {props.text3 && (
+          <p
+            style={{
+              fontSize: "1.8rem",
+              margin: "0 0 3rem",
+              color: props.backgroundColor === "purple" ? "white" : "#252525",
+              textAlign: "justify",
+            }}
+          >
+            {props.text3}
+          </p>
+        )}
 
         {props.buttonText && (
           <Button
@@ -137,7 +175,7 @@ function Article(props) {
           <img src={props.img} alt="" style={props.imgStyle} />
         </Aside>
       )}
-    </Article>
+    </StyledArticle>
   );
 }
 

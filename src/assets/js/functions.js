@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation /*, useNavigate*/ } from "react-router-dom";
 import { keyframes } from "styled-components";
 
 export default function ScrollToTop() {
@@ -9,6 +9,13 @@ export default function ScrollToTop() {
     window.scrollTo(0, 0);
   }, [pathname]);
 }
+
+/*export const useHandleNavigation = (to, transitionFunction) => {
+  let navigate = useNavigate();
+
+  transitionFunction();
+  setTimeout(() => navigate(to), 500);
+};*/
 
 export const slideDownAndUp = keyframes`
     0%, 100% {

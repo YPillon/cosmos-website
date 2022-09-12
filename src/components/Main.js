@@ -5,6 +5,9 @@ import { useMediaQuery } from "@mui/material";
 function Main(props) {
   const isPhone = useMediaQuery("(max-width:768px)");
   const isTablet = useMediaQuery("(min-width: 769px) and (max-width:1024px)");
+  const isSmallDesktop = useMediaQuery(
+    "(min-width: 1025px) and (max-width:1300px)"
+  );
 
   let mainWidth;
 
@@ -12,6 +15,8 @@ function Main(props) {
     mainWidth = { width: "100%" };
   } else if (isTablet) {
     mainWidth = { width: "70rem" };
+  } else if (isSmallDesktop) {
+    mainWidth = { width: "90rem" };
   } else {
     mainWidth = { width: "120rem" };
   }

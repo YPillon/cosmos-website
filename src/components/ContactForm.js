@@ -7,6 +7,87 @@ import emailjs from "@emailjs/browser";
 
 import { useMediaQuery } from "@mui/material";
 
+const FormTitle = styled.h1`
+  font-size: 3rem;
+  position: relative;
+  width: fit-content;
+  margin: 0rem 0 3rem;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -1.2rem;
+    left: 0%;
+    width: 33%;
+    height: 0.3rem;
+    background: white;
+    border: solid #2b66e9 0.2rem;
+    border-radius: 1rem;
+  }
+`;
+
+const FormSubtitle = styled.h2`
+  margin: 1rem 0 2rem;
+  font-size: 2.5rem;
+`;
+
+const FormLabel = styled.label`
+  display: flex;
+  flex-direction: column;
+`;
+
+const ErrorMessage = styled.p`
+  font-size: 1.5rem;
+  color: red;
+  position: relative;
+  top: -2.7rem;
+`;
+
+const RequiredSign = styled.span`
+  color: red;
+`;
+
+const Button = styled.button`
+      font-size: 3rem;
+      width: fit-content;
+      padding: 0.2rem 1.2rem;
+      margin: 5rem 0;
+      font-weight: bolder;
+      cursor: pointer;
+      color: #3f008d;
+      -webkit-text-stroke: 0.1rem #3f008d;
+      border: solid 0.36rem #fa8128;
+      border-radius: 0.8rem;
+      box-shadow: #3f008d -1px 3px 7px;
+      background: linear-gradient(to right, #fa8128 50%, transparent 50%) right;
+      background-size: 200% 150%;
+      transition: background 0.25s ease-out, transform 0.25s 0.05s ease-out;
+      margin-left: ${(props) => props.buttonMarginLeft};
+
+      &:hover{
+        background-position: left;
+        transform: translateY(-0.15rem);
+        }
+      }
+    `;
+
+const slideDown = keyframes`
+    0% {
+      transform: translateY(-5rem);
+      opacity: 0;
+    }
+    
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  `;
+
+const SuccessMessage = styled.p`
+  text-align: center;
+  color: #3f008d;
+  animation: ${slideDown} 0.5s ease-in-out;
+`;
+
 const FormSchema = Yup.object().shape({
   projectDescription: Yup.string()
     .min(20, "Veuillez détailler un peu plus votre projet")
@@ -42,88 +123,7 @@ export const ContactForm = () => {
 
   const isPhone = useMediaQuery("(max-width:768px)");
 
-  const FormTitle = styled.h1`
-    font-size: 3rem;
-    position: relative;
-    width: fit-content;
-    margin: 0rem 0 3rem;
-    &::before {
-      content: "";
-      position: absolute;
-      bottom: -1.2rem;
-      left: 0%;
-      width: 33%;
-      height: 0.3rem;
-      background: white;
-      border: solid #2b66e9 0.2rem;
-      border-radius: 1rem;
-    }
-  `;
-
-  const FormSubtitle = styled.h2`
-    margin: 1rem 0 2rem;
-    font-size: 2.5rem;
-  `;
-
-  const FormLabel = styled.label`
-    display: flex;
-    flex-direction: column;
-  `;
-
-  const ErrorMessage = styled.p`
-    font-size: 1.5rem;
-    color: red;
-    position: relative;
-    top: -2.7rem;
-  `;
-
-  const RequiredSign = styled.span`
-    color: red;
-  `;
-
   const buttonMarginLeft = isPhone ? "calc(45vw - 7rem)" : 0;
-
-  const Button = styled.button`
-      font-size: 3rem;
-      width: fit-content;
-      padding: 0.2rem 1.2rem;
-      margin: 5rem 0;
-      font-weight: bolder;
-      cursor: pointer;
-      color: #3f008d;
-      -webkit-text-stroke: 0.1rem #3f008d;
-      border: solid 0.36rem #fa8128;
-      border-radius: 0.8rem;
-      box-shadow: #3f008d -1px 3px 7px;
-      background: linear-gradient(to right, #fa8128 50%, transparent 50%) right;
-      background-size: 200% 150%;
-      transition: background 0.25s ease-out, transform 0.25s 0.05s ease-out;
-      margin-left: ${buttonMarginLeft};
-
-      &:hover{
-        background-position: left;
-        transform: translateY(-0.15rem);
-        }
-      }
-    `;
-
-  const slideDown = keyframes`
-    0% {
-      transform: translateY(-5rem);
-      opacity: 0;
-    }
-    
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  `;
-
-  const SuccessMessage = styled.p`
-    text-align: center;
-    color: #3f008d;
-    animation: ${slideDown} 0.5s ease-in-out;
-  `;
 
   return (
     <>
@@ -146,8 +146,6 @@ export const ContactForm = () => {
 
           await sleep(500);
 
-          
-
           emailjs
             .send(
               "contact_service",
@@ -159,12 +157,12 @@ export const ContactForm = () => {
               (result) => {
                 console.log(result.text);
                 setIsFormSent(true);
-                setButtonText('Envoyer');
+                setButtonText("Envoyer");
                 resetForm();
               },
               (error) => {
                 console.log(error.text);
-                setButtonText('Envoyer');
+                setButtonText("Envoyer");
               }
             );
         }}
@@ -432,7 +430,9 @@ export const ContactForm = () => {
             {errors.length > 0 && touched ? (
               <ErrorMessage>Veuillez tout remplir</ErrorMessage>
             ) : null}
-            <Button type="submit">{buttonText}</Button>
+            <Button type="submit" buttonMarginLeft={buttonMarginLeft}>
+              {buttonText}
+            </Button>
             {isFormSent && (
               <SuccessMessage>
                 Merci ! Nous avons bien reçu votre demande de devis et nous vous

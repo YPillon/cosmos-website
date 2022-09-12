@@ -2,8 +2,7 @@ import React from "react";
 
 import styled, { keyframes } from "styled-components";
 
-function AnimatedArrow(props) {
-  const BounceAnimation = keyframes`
+const BounceAnimation = keyframes`
     /*0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
       40% {transform: translateY(-30px);}
       60% {transform: translateY(-15px);}*/
@@ -33,6 +32,9 @@ function AnimatedArrow(props) {
     animation: ${BounceAnimation} 3.5s linear infinite;
     cursor: pointer;
   `;
+
+function AnimatedArrow(props) {
+  
 
   return (
     <ArrowContainer>

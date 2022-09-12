@@ -5,6 +5,24 @@ import Button from "./Button";
 
 import ServicesList from "./ServicesList";
 
+const Name = styled.h3`
+  font-size: 4rem;
+  position: relative;
+  width: fit-content;
+  margin: 1rem 0 3rem;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -1.2rem;
+    left: 0%;
+    width: 10rem;
+    height: 0.3rem;
+    background: white;
+    border: solid #2b66e9 0.2rem;
+    border-radius: 1rem;
+  }
+`;
+
 function Pack(props) {
   /*
         props are:
@@ -16,24 +34,6 @@ function Pack(props) {
         -price
         -delay
     */
-
-  const Name = styled.h3`
-    font-size: 4rem;
-    position: relative;
-    width: fit-content;
-    margin: 1rem 0 3rem;
-    &::before {
-      content: "";
-      position: absolute;
-      bottom: -1.2rem;
-      left: 0%;
-      width: 10rem;
-      height: 0.3rem;
-      background: white;
-      border: solid #2b66e9 0.2rem;
-      border-radius: 1rem;
-    }
-  `;
 
   return (
     <article
@@ -65,7 +65,12 @@ function Pack(props) {
       <ServicesList array={props.options} />
 
       <div style={{ textAlign: "center", margin: "7rem 0 0" }}>
-        <Button text="Je choisis ce pack" link="/contact" internLink="true" />
+        <Button
+          text="Je choisis ce pack"
+          link="/contact"
+          internLink="true"
+          triggerTransition={props.triggerTransition}
+        />
       </div>
     </article>
   );

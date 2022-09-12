@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Header from "./Header";
 import Main from "./Main";
 import Pack from "./Pack";
+import Loader from "./Loader";
 
 import {
   includedInOnepageArray,
@@ -15,17 +16,18 @@ import {
   optionsInReservationArray,
 } from "../assets/js/functions";
 
-function PacksPage(props) {
-  const H2Link = styled.a`
-    transition: all 0.25s ease-out;
-    text-decoration: underline;
-    &:hover {
-      color: #fa8128;
-    }
-  `;
+const H2Link = styled.a`
+  transition: all 0.25s ease-out;
+  text-decoration: underline;
+  &:hover {
+    color: #fa8128;
+  }
+`;
 
+function PacksPage(props) {
   return (
     <>
+      <Loader />
       <Header
         title="Nos packs"
         subtitle="Optez pour la simplicité avec un de nos packs clé en main."
@@ -49,7 +51,7 @@ function PacksPage(props) {
         </h2>
 
         <Pack
-          title="Pack « One-page »"
+          title="Pack «&nbsp;One-page&nbsp;»"
           anchor="onePage"
           description="Le pack « One-page » vous permet de vous lancer rapidement et d’être
             présent en ligne à moindre coût ! C’est l’idéal pour une petite
@@ -61,7 +63,7 @@ function PacksPage(props) {
         />
 
         <Pack
-          title="Pack « Site Vitrine »"
+          title="Pack «&nbsp;Site Vitrine&nbsp;»"
           anchor="siteVitrine"
           description="Le pack « Vitrine » vous donne tout ce dont vous avez besoin pour
           présenter votre entreprise et votre offre sur internet. Un site
@@ -75,7 +77,7 @@ function PacksPage(props) {
         />
 
         <Pack
-          title="Pack « Réservation en ligne »"
+          title="Pack «&nbsp;Réservation en ligne&nbsp;»"
           anchor="reservation"
           description="Idéal si vous voulez gagner du temps en proposant un service de réservation 100% en ligne. 
           Plus besoin de gérer les réservations par téléphone et d’être coupés au milieu de votre travail. 

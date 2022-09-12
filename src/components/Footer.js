@@ -7,6 +7,30 @@ import { useMediaQuery } from "@mui/material";
 import logo from "../assets/images/logo.png";
 import { slideDownAndUp } from "../assets/js/functions";
 
+const FooterSpan1 = styled.span`
+  width: fit-content;
+  transition: all 0.25s ease-out;
+  &:hover {
+    color: #fa8128;
+  }
+`;
+
+const FooterSpan = styled.span`
+  text-align: center;
+  width: fit-content;
+  cursor: pointer;
+  transition: all 0.25s ease-out;
+  &:hover {
+    color: #fa8128;
+  }
+`;
+
+const CopiedSpan = styled.span`
+  font-size: 1.7rem;
+  color: #fa8128;
+  animation: ${slideDownAndUp} 2s ease-in-out;
+`;
+
 function Footer() {
   const [isEmailCopied, setIsEmailCopied] = useState(false);
   const [isPhoneCopied, setIsPhoneCopied] = useState(false);
@@ -36,30 +60,6 @@ function Footer() {
     return date.getFullYear();
   };
 
-  const FooterSpan1 = styled.span`
-    width: fit-content;
-    transition: all 0.25s ease-out;
-    &:hover {
-      color: #fa8128;
-    }
-  `;
-
-  const FooterSpan = styled.span`
-    text-align: center;
-    width: fit-content;
-    cursor: pointer;
-    transition: all 0.25s ease-out;
-    &:hover {
-      color: #fa8128;
-    }
-  `;
-
-  const CopiedSpan = styled.span`
-    font-size: 1.7rem;
-    color: #fa8128;
-    animation: ${slideDownAndUp} 2s ease-in-out;
-  `;
-
   return (
     <footer
       style={{
@@ -71,8 +71,8 @@ function Footer() {
         display: "grid",
         gridTemplateColumns: isTabletOrPhone ? "1fr" : "1fr 1fr 1fr",
         gridTemplateRows: isTabletOrPhone
-          ? "1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr"
-          : "1fr 1fr 1fr",
+          ? "1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr"
+          : "1fr 1fr 1fr 1fr",
       }}
     >
       <Link to="/" style={{ gridColumn: "1", gridRow: "1 / 2" }}>
@@ -86,7 +86,7 @@ function Footer() {
         style={{
           fontSize: "1.5rem",
           gridColumn: "1",
-          gridRow: isTabletOrPhone ? "9" : "3",
+          gridRow: isTabletOrPhone ? "10" : "3",
         }}
       >
         Tous droits réservés ©️ {dateBuilder()}
@@ -122,12 +122,24 @@ function Footer() {
       </Link>
 
       <a
-        href="https://www.instagram.com/cosmosagency.fr/"
+        href="https://www.linkedIn.com"
         target="_blank"
         rel="noreferrer"
         style={{
           gridColumn: isTabletOrPhone ? "1" : "3",
           gridRow: isTabletOrPhone ? "6" : "1",
+        }}
+      >
+        <FooterSpan1>LinkedIn</FooterSpan1>
+      </a>
+
+      <a
+        href="https://www.instagram.com/cosmosagency.fr/"
+        target="_blank"
+        rel="noreferrer"
+        style={{
+          gridColumn: isTabletOrPhone ? "1" : "3",
+          gridRow: isTabletOrPhone ? "7" : "2",
         }}
       >
         <FooterSpan1>Instagram</FooterSpan1>
@@ -136,7 +148,7 @@ function Footer() {
       <FooterSpan
         style={{
           gridColumn: isTabletOrPhone ? "1" : "3",
-          gridRow: isTabletOrPhone ? "7" : "2",
+          gridRow: isTabletOrPhone ? "8" : "3",
         }}
         title="Cliquez pour copiez l'adresse mail"
         onClick={(e) => copyToClipboard("contact@cosmosagency.fr", "email")}
@@ -149,7 +161,7 @@ function Footer() {
       <FooterSpan
         style={{
           gridColumn: isTabletOrPhone ? "1" : "3",
-          gridRow: isTabletOrPhone ? "8" : "3",
+          gridRow: isTabletOrPhone ? "9" : "4",
         }}
         title="Cliquez pour copiez le numéro de téléphone"
         onClick={(e) => copyToClipboard("+33611441471", "phone")}
