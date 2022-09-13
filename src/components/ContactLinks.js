@@ -2,11 +2,12 @@ import React, { useState } from "react";
 
 import styled from "styled-components";
 
-import { IconContext } from "react-icons";
-import { BsLinkedin, BsBuilding } from "react-icons/bs";
-import { GrInstagram } from "react-icons/gr";
-import { FaPhoneAlt } from "react-icons/fa";
-import { IoIosMail } from "react-icons/io";
+import { IconContext } from "@react-icons/all-files";
+import { SiLinkedin } from "@react-icons/all-files/si/SiLinkedin";
+import { BsBuilding } from "@react-icons/all-files/bs/BsBuilding";
+import { GrInstagram } from "@react-icons/all-files/gr/GrInstagram";
+import { FaPhoneAlt } from "@react-icons/all-files/fa/FaPhoneAlt";
+import { IoIosMail } from "@react-icons/all-files/io/IoIosMail";
 
 import { slideDownAndUp } from "../assets/js/functions";
 
@@ -79,7 +80,7 @@ const ContactLinks = () => {
             rel="noreferrer"
             title="Venez visiter notre page LinkedIn !"
           >
-            <BsLinkedin /> Cosmos Agency
+            <SiLinkedin /> Cosmos Agency
           </CustomLink>
         </Li>
         <Li>

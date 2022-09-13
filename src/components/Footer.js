@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useMediaQuery } from "@mui/material";
 
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/logo.webp";
 import { slideDownAndUp } from "../assets/js/functions";
 
 const FooterSpan1 = styled.span`
@@ -77,6 +77,8 @@ function Footer() {
     >
       <Link to="/" style={{ gridColumn: "1", gridRow: "1 / 2" }}>
         <img
+          width="262"
+          height="70"
           src={logo}
           alt="logo de l'agence Cosmos"
           style={{ height: "7rem" }}

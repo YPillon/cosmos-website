@@ -34,12 +34,14 @@ function Review(props) {
         }}
       >
         <img
+          width="80"
+          height="80"
           src={props.img}
           alt={altText}
           style={{
             width: "100%",
             display: "block",
-            transform: "scale(1.5) translate(0.2rem, 2rem)",
+            transform: "scale(1.5) translate(0.2rem, 1.3rem)",
           }}
         />
       </figure>

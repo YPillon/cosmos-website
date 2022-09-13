@@ -5,18 +5,18 @@ import { useMediaQuery } from "@mui/material";
 import Header from "./Header";
 import Main from "./Main";
 import Button from "./Button";
-import Article from "./Article";
+import Article from "./Article"; 
 import Review from "./Review";
 import Loader from "./Loader";
 
-import designImage from "../assets/images/design.png";
-import happyImage from "../assets/images/happy-woman.png";
+import designImage from "../assets/images/design.webp";
+import happyImage from "../assets/images/happy-woman.webp";
 
-import background3 from "../assets/images/background-images/background2.jpg";
-import background2 from "../assets/images/background-images/background3.jpg";
-import background1 from "../assets/images/background-images/background1.jpg";
+import background3 from "../assets/images/background-images/background2.webp";
+import background2 from "../assets/images/background-images/background3.webp";
+import background1 from "../assets/images/background-images/background1.webp";
 
-import lEngelmann from "../assets/images/louise-engelmann.jpg";
+import lEngelmann from "../assets/images/louise-engelmann2.webp";
 
 function Homepage() {
   const isPhone = useMediaQuery("(max-width:768px)");

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/logo.webp";
 
 import useMediaQuery from "@mui/material/useMediaQuery";
 
@@ -170,6 +170,8 @@ function Navigation() {
         onClick={() => setIsMenuOpen(false)}
       >
         <img
+          width="262"
+          height="70"
           src={logo}
           alt="logo de l'agence Cosmos"
           style={{

@@ -22,7 +22,7 @@ const StyledArticle = styled.article`
   text-align: left;
 `;
 
-const Title = styled.h3`
+const Title = styled.h1`
   font-size: 3rem;
   position: relative;
   width: fit-content;
