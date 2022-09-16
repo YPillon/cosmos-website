@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { useMediaQuery } from "@mui/material";
 
 import Header from "./Header";
 import Main from "./Main";
 import Button from "./Button";
-import Article from "./Article"; 
+import Article from "./Article";
 import Review from "./Review";
 import Loader from "./Loader";
 
@@ -24,6 +24,10 @@ function Homepage() {
   const isSmallDesktop = useMediaQuery(
     "(min-width: 1025px) and (max-width:1300px)"
   );
+
+  useEffect(() => {
+    document.title = "Cosmos, agence web et mobile à Strasbourg";
+  }, []);
 
   const firstImage = isTablet || isPhone || isSmallDesktop ? "" : designImage;
   const secondImage = isTablet || isPhone || isSmallDesktop ? "" : happyImage;

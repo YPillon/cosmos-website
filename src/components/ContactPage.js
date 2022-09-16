@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 import { useMediaQuery } from "@mui/material";
 
@@ -11,6 +11,10 @@ import Loader from "./Loader";
 function ContactPage() {
   const isPhone = useMediaQuery("(max-width:768px)");
 
+  useEffect(() => {
+    document.title = "Contactez-nous | Cosmos";
+  }, []);
+
   return (
     <>
       <Loader />
@@ -19,6 +23,7 @@ function ContactPage() {
         subtitle="Vous avez trouvé l'agence qui vous correspond."
         buttonText="Contacter l'agence"
         buttonLink="#main"
+        arrowHidden={isPhone ? "true" : ""}
       />
       <Main>
         <div

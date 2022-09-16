@@ -35,9 +35,9 @@ function Header(props) {
   } else if (props.subtitle && !isPhone) {
     paddingTop = "28.8vh";
   } else if (props.subtitle && isPhone) {
-    paddingTop = "25vh";
+    paddingTop = "19vh";
   } else if (!props.subtitle && isPhone) {
-    paddingTop = "27vh";
+    paddingTop = "25vh";
   }
 
   const subtitle = props.subtitle ? (
@@ -51,7 +51,7 @@ function Header(props) {
   );
 
   return (
-    <header style={{ height: "100vh" }}>
+    <header style={{ height: "100vh", position: "relative" }}>
       <Title
         style={{ fontSize: isPhone ? "6rem" : "" }}
         paddingTop={paddingTop}

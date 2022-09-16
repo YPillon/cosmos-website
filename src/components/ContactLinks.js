@@ -94,6 +94,9 @@ const ContactLinks = () => {
           </CustomLink>
         </Li>
         <Li
+          onTouchEnd={(e) =>
+            copyToClipboard("contact@cosmosagency.fr", "email")
+          }
           onClick={(e) => copyToClipboard("contact@cosmosagency.fr", "email")}
           title="Cliquez pour copiez l'adresse mail"
         >
@@ -109,6 +112,7 @@ const ContactLinks = () => {
         </Li>
 
         <Li
+          onTouchEnd={(e) => copyToClipboard("+33611441471", "phone")}
           onClick={(e) => copyToClipboard("+33611441471", "phone")}
           title="Cliquez pour copiez le numéro de téléphone"
         >
@@ -122,6 +126,12 @@ const ContactLinks = () => {
           </CopiedSpan>
         </Li>
         <Li
+          onTouchEnd={(e) =>
+            copyToClipboard(
+              "16, impasse Quinta Florentina 67200 Strasbourg",
+              "address"
+            )
+          }
           onClick={(e) =>
             copyToClipboard(
               "16, impasse Quinta Florentina 67200 Strasbourg",

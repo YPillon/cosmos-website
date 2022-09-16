@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import styled from "styled-components";
 
@@ -24,7 +24,11 @@ const H2Link = styled.a`
   }
 `;
 
-function PacksPage(props) {
+function PacksPage() {
+  useEffect(() => {
+    document.title = "Nos Packs | Cosmos";
+  }, []);
+
   return (
     <>
       <Loader />

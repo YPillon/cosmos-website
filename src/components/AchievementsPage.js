@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 import { useMediaQuery } from "@mui/material";
 
@@ -10,12 +10,16 @@ import Loader from "./Loader";
 import woodifullBackground from "../assets/images/background-images/woodifull-background.webp";
 import woodifullIncrustation from "../assets/images/woodifull-incrustation.webp";
 
-function Achievements(props) {
+function Achievements() {
   const isPhone = useMediaQuery("(max-width:768px)");
   const isTablet = useMediaQuery("(min-width: 769px) and (max-width:1024px)");
   const isSmallDesktop = useMediaQuery(
     "(min-width: 1025px) and (max-width:1300px)"
   );
+
+  useEffect(() => {
+    document.title = "Nos Réalisations | Cosmos";
+  }, []);
 
   const woodifullImage =
     isTablet || isPhone || isSmallDesktop ? "" : woodifullIncrustation;

@@ -23,7 +23,7 @@ function Main(props) {
 
   return (
     <main
-      style={{ ...mainWidth, margin: "0 auto", textAlign: "center" }}
+      style={{ ...mainWidth, margin: "auto auto", textAlign: "center" }}
       id="main"
     >
       <div style={{ height: "8rem" }}></div>

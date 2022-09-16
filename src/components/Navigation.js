@@ -94,7 +94,7 @@ function Navigation() {
       justifyContent: "center",
       transition: "0.75s ease-in-out",
       height: "100vh",
-      paddingBottom: "30rem",
+      paddingBottom: "25rem",
     };
   } else {
     ulStyle = {
@@ -151,7 +151,7 @@ function Navigation() {
   if (!isTabletOrPhone || (isTablet && !isMenuOpen)) {
     logoTranslation = { transform: "translateX(0)" };
   } else if (isTabletOrPhone && isMenuOpen) {
-    logoTranslation = { transform: "translate(0%, 200%) scale(1.1)" };
+    logoTranslation = { transform: "translate(0%, 175%) scale(1.1)" };
   } else if (isPhone && !isMenuOpen) {
     logoTranslation = { transform: "translateX(-15%)" };
   }

@@ -57,6 +57,8 @@ function Article(props) {
     -imgStyle
     -buttonText
     -buttonLink
+    -text2
+    -text3
     */
 
   const isPhone = useMediaQuery("(max-width:768px)");
@@ -68,7 +70,7 @@ function Article(props) {
   let backgroundColor;
 
   if (props.backgroundColor === "blue") {
-    backgroundColor = "#2b67e8cc";
+    backgroundColor = "#2b67e8b3";
   } else if (props.backgroundColor === "purple") {
     backgroundColor = "#3f008dcc";
   } else if (props.backgroundColor === "orange") {

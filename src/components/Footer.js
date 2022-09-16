@@ -153,6 +153,7 @@ function Footer() {
           gridRow: isTabletOrPhone ? "8" : "3",
         }}
         title="Cliquez pour copiez l'adresse mail"
+        onTouchEnd={(e) => copyToClipboard("contact@cosmosagency.fr", "email")}
         onClick={(e) => copyToClipboard("contact@cosmosagency.fr", "email")}
       >
         contact@cosmosagency.fr
@@ -166,6 +167,7 @@ function Footer() {
           gridRow: isTabletOrPhone ? "9" : "4",
         }}
         title="Cliquez pour copiez le numéro de téléphone"
+        onTouchEnd={(e) => copyToClipboard("+33611441471", "phone")}
         onClick={(e) => copyToClipboard("+33611441471", "phone")}
       >
         0611441471
