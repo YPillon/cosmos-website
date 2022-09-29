@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
@@ -43,9 +43,9 @@ function Button(props) {
   return (
     <>
       {props.internLink === "true" && (
-        <Link to={props.link}>
+        <HashLink to={props.link}>
           <StyledButton style={smallStyle}>{props.text}</StyledButton>
-        </Link>
+        </HashLink>
       )}
       {props.internLink !== "true" && (
         <a href={link} target={blankOrNotBlank}>

@@ -85,3 +85,31 @@ textarea:focus,
 select:focus {
   outline: none;
 }
+
+/* Scrollbar styling start */
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+::-webkit-scrollbar:hover {
+  opacity: 1;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  border: #2b66e9 2px solid;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #3f008d, #fa8128);
+  border: none;
+}
+/* Scrollbar styling end */
+
+/*
+Color 1 : #3f008d
+Color 2 : #2b66e9
+Color 3 : #fa8128
+*/

@@ -19,7 +19,6 @@ const MainText = styled.p`
 `;
 
 function Review(props) {
-  const altText = `Photo de ${props.name}`;
 
   return (
     <Article>
@@ -37,7 +36,7 @@ function Review(props) {
           width="80"
           height="80"
           src={props.img}
-          alt={altText}
+          alt={props.altText}
           style={{
             width: "100%",
             display: "block",

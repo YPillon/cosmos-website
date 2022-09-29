@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import styled from "styled-components";
 import { useMediaQuery } from "@mui/material";
+import ReactGA from "react-ga";
 
 import logo from "../assets/images/logo.webp";
 import { slideDownAndUp } from "../assets/js/functions";
@@ -16,6 +17,16 @@ const FooterSpan1 = styled.span`
 `;
 
 const FooterSpan = styled.span`
+  text-align: center;
+  width: fit-content;
+  cursor: pointer;
+  transition: all 0.25s ease-out;
+  &:hover {
+    color: #fa8128;
+  }
+`;
+
+const FooterLink = styled.a`
   text-align: center;
   width: fit-content;
   cursor: pointer;
@@ -119,12 +130,18 @@ function Footer() {
           gridColumn: isTabletOrPhone ? "1" : "2",
           gridRow: isTabletOrPhone ? "5" : "3",
         }}
+        onClick={() => {
+          ReactGA.event({
+            category: "User",
+            action: "Went to contact page from footer.",
+          });
+        }}
       >
         <FooterSpan1>Contact</FooterSpan1>
       </Link>
 
       <a
-        href="https://www.linkedIn.com"
+        href="https://www.linkedin.com/company/88657226/"
         target="_blank"
         rel="noreferrer"
         style={{
@@ -147,34 +164,59 @@ function Footer() {
         <FooterSpan1>Instagram</FooterSpan1>
       </a>
 
-      <FooterSpan
-        style={{
-          gridColumn: isTabletOrPhone ? "1" : "3",
-          gridRow: isTabletOrPhone ? "8" : "3",
-        }}
-        title="Cliquez pour copiez l'adresse mail"
-        onTouchEnd={(e) => copyToClipboard("contact@cosmosagency.fr", "email")}
-        onClick={(e) => copyToClipboard("contact@cosmosagency.fr", "email")}
-      >
-        contact@cosmosagency.fr
-        <CopiedSpan style={{ display: isEmailCopied ? "block" : "none" }}>
-          Copié !
-        </CopiedSpan>
-      </FooterSpan>
-      <FooterSpan
-        style={{
-          gridColumn: isTabletOrPhone ? "1" : "3",
-          gridRow: isTabletOrPhone ? "9" : "4",
-        }}
-        title="Cliquez pour copiez le numéro de téléphone"
-        onTouchEnd={(e) => copyToClipboard("+33611441471", "phone")}
-        onClick={(e) => copyToClipboard("+33611441471", "phone")}
-      >
-        0611441471
-        <CopiedSpan style={{ display: isPhoneCopied ? "block" : "none" }}>
-          Copié !
-        </CopiedSpan>
-      </FooterSpan>
+      {!isTabletOrPhone && (
+        <FooterSpan
+          style={{
+            gridColumn: isTabletOrPhone ? "1" : "3",
+            gridRow: isTabletOrPhone ? "8" : "3",
+          }}
+          title="Cliquez pour copiez l'adresse mail"
+          onClick={(e) => copyToClipboard("contact@cosmosagency.fr", "email")}
+        >
+          contact@cosmosagency.fr
+          <CopiedSpan style={{ display: isEmailCopied ? "block" : "none" }}>
+            Copié !
+          </CopiedSpan>
+        </FooterSpan>
+      )}
+      {isTabletOrPhone && (
+        <FooterLink
+          href="mailto:contact@cosmosagency.fr"
+          style={{
+            gridColumn: isTabletOrPhone ? "1" : "3",
+            gridRow: isTabletOrPhone ? "8" : "3",
+          }}
+        >
+          contact@cosmosagency.fr
+        </FooterLink>
+      )}
+
+      {!isTabletOrPhone && (
+        <FooterSpan
+          style={{
+            gridColumn: isTabletOrPhone ? "1" : "3",
+            gridRow: isTabletOrPhone ? "9" : "4",
+          }}
+          title="Cliquez pour copiez le numéro de téléphone"
+          onClick={(e) => copyToClipboard("+33611441471", "phone")}
+        >
+          0611441471
+          <CopiedSpan style={{ display: isPhoneCopied ? "block" : "none" }}>
+            Copié !
+          </CopiedSpan>
+        </FooterSpan>
+      )}
+      {isTabletOrPhone && (
+        <FooterLink
+          href="tel:+33611441471"
+          style={{
+            gridColumn: isTabletOrPhone ? "1" : "3",
+            gridRow: isTabletOrPhone ? "9" : "4",
+          }}
+        >
+          0611441471
+        </FooterLink>
+      )}
     </footer>
   );
 }

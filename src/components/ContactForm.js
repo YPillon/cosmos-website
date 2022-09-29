@@ -4,11 +4,12 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import styled, { keyframes } from "styled-components";
 import emailjs from "@emailjs/browser";
+import ReactGA from "react-ga";
 
 import { useMediaQuery } from "@mui/material";
 
 const FormTitle = styled.h1`
-  font-size: 3rem;
+  font-size: 2.5rem;
   position: relative;
   width: fit-content;
   margin: 0rem 0 3rem;
@@ -23,11 +24,6 @@ const FormTitle = styled.h1`
     border: solid #2b66e9 0.2rem;
     border-radius: 1rem;
   }
-`;
-
-const FormSubtitle = styled.h2`
-  margin: 1rem 0 2rem;
-  font-size: 2.5rem;
 `;
 
 const FormLabel = styled.label`
@@ -89,30 +85,17 @@ const SuccessMessage = styled.p`
 `;
 
 const FormSchema = Yup.object().shape({
-  projectDescription: Yup.string()
-    .min(20, "Veuillez détailler un peu plus votre projet")
-    .max(3000, "La description est limitée à 3000 caractères")
+  name: Yup.string()
+    .min(2, "Le nom doit au moins contenir 2 caractères")
+    .max(60, "Le nom ne peut pas dépasser 60 caractères")
     .required("Ce champ est requis"),
-  budget: Yup.string().required("Veuillez choisir votre budget"),
-  youAre: Yup.string().required("Veuillez choisir une option"),
-  firstName: Yup.string()
-    .min(2, "Trop court")
-    .max(50, "Trop long")
+  email: Yup.string()
+    .email("L'email est invalide")
     .required("Ce champ est requis"),
-  lastName: Yup.string()
-    .min(2, "Trop court")
-    .max(50, "Trop long")
-    .required("Ce champ est requis"),
-  email: Yup.string().email("Invalid email").required("Ce champ est requis"),
-  phone: Yup.number(),
-  enterpriseName: Yup.string()
-    .min(1, "Trop court")
-    .max(50, "Trop long")
-    .required("Ce champ est requis"),
-  address: Yup.string()
-    .min(1, "Trop court")
-    .max(50, "Trop long")
-    .required("Ce champ est requis"),
+  phone: Yup.number(
+    'Veuillez n\'utiliser que des chiffres et/ou le signe "+"'
+  ).required("Ce champ est requis"),
+  message: Yup.string().max(2000),
 });
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -129,16 +112,10 @@ export const ContactForm = () => {
     <>
       <Formik
         initialValues={{
-          conception: [],
-          realization: [],
-          projectDescription: "",
-          budget: "",
-          youAre: "",
-          firstName: "",
-          lastName: "",
+          name: "",
           email: "",
-          enterpriseName: "",
-          address: "",
+          phone: "",
+          message: "",
         }}
         validationSchema={FormSchema}
         onSubmit={async (values, { resetForm }) => {
@@ -157,6 +134,10 @@ export const ContactForm = () => {
               (result) => {
                 console.log(result.text);
                 setIsFormSent(true);
+                ReactGA.event({
+                  category: "User",
+                  action: "Submitted the form !",
+                });
                 setButtonText("Envoyer");
                 resetForm();
               },
@@ -174,226 +155,27 @@ export const ContactForm = () => {
               display: "flex",
               flexDirection: "column",
               fontSize: "2rem",
+              message: "",
             }}
           >
             <FormTitle>
-              Parlez-nous de votre projet, le devis est 100% gratuit&nbsp;!
+              Nous avons seulement besoin de quelques informations.
             </FormTitle>
 
-            <FormSubtitle>Quels sont vos besoins ?</FormSubtitle>
-
-            {/* Conception */}
-            <div id="conceptionGroup">Conception</div>
-            <div
-              role="group"
-              aria-labelledby="conceptionGroup"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                margin: "1rem 0 2rem",
-              }}
-            >
-              <label>
-                <Field
-                  type="checkbox"
-                  name="conception"
-                  value="Expérience Utilisateur (UX)"
-                />
-                Expérience Utilisateur (UX)
-              </label>
-              <label>
-                <Field
-                  type="checkbox"
-                  name="conception"
-                  value="Interface Utilisateur (UI)"
-                />
-                Interface Utilisateur (UI)
-              </label>
-              <label>
-                <Field
-                  type="checkbox"
-                  name="conception"
-                  value="Logo, charte graphique, identité de marque"
-                />
-                Logo, charte graphique, identité de marque
-              </label>
-              <label>
-                <Field type="checkbox" name="conception" value="Motion vidéo" />
-                Motion vidéo
-              </label>
-              <label>
-                <Field
-                  type="checkbox"
-                  name="conception"
-                  value="Shooting photo"
-                />
-                Shooting photo
-              </label>
-            </div>
-
-            {/* Réalisation */}
-            <div id="realizationGroup">Réalisation</div>
-            <div
-              role="group"
-              aria-labelledby="realizationGroup"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                margin: "1rem 0 2rem",
-              }}
-            >
-              <label>
-                <Field
-                  type="checkbox"
-                  name="realization"
-                  value="Landing Page"
-                />
-                Landing Page
-              </label>
-              <label>
-                <Field
-                  type="checkbox"
-                  name="realization"
-                  value="Site Vitrine"
-                />
-                Site Vitrine
-              </label>
-              <label>
-                <Field
-                  type="checkbox"
-                  name="realization"
-                  value="Site web avec vente en ligne (e-commerce)"
-                />
-                Site web avec vente en ligne (e-commerce)
-              </label>
-              <label>
-                <Field
-                  type="checkbox"
-                  name="realization"
-                  value="Site de réservation en ligne"
-                />
-                Site de réservation en ligne
-              </label>
-              <label>
-                <Field
-                  type="checkbox"
-                  name="realization"
-                  value="Application mobile"
-                />
-                Application mobile
-              </label>
-            </div>
-
             <FormLabel>
               <span>
-                Décrivez-nous votre projet<RequiredSign>*</RequiredSign>
+                Comment vous appelez-vous&nbsp;?<RequiredSign>*</RequiredSign>
               </span>
-              <Field
-                name="projectDescription"
-                as="textarea"
-                rows="5"
-                placeholder="Faites-nous part de toutes les informations qui vous semblent importantes pour la réalisation de votre projet !"
-              />
-              {errors.projectDescription && touched.projectDescription ? (
-                <ErrorMessage>{errors.projectDescription}</ErrorMessage>
-              ) : null}
-            </FormLabel>
-
-            <div id="budgetGroup">
-              Quel est votre budget ?<RequiredSign>*</RequiredSign>
-            </div>
-            <div
-              role="group"
-              aria-labelledby="budgetGroup"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                margin: "1rem 0 2rem",
-              }}
-            >
-              <label>
-                <Field type="radio" name="budget" value="Inférieur à 1000€" />
-                Inférieur à 1000€
-              </label>
-              <label>
-                <Field
-                  type="radio"
-                  name="budget"
-                  value="Entre 1000€ et 3000€"
-                />
-                Entre 1000€ et 3000€
-              </label>
-              <label>
-                <Field
-                  type="radio"
-                  name="budget"
-                  value="Entre 3000€ et 7000€"
-                />
-                Entre 3000€ et 7000€
-              </label>
-              <label>
-                <Field
-                  type="radio"
-                  name="budget"
-                  value="Entre 7000€ et 12000€"
-                />
-                Entre 7000€ et 12000€
-              </label>
-              <label>
-                <Field
-                  type="radio"
-                  name="budget"
-                  value="Entre 12000€ et 20000€"
-                />
-                Entre 12000€ et 20000€
-              </label>
-            </div>
-            {errors.budget && touched.budget ? (
-              <ErrorMessage>{errors.budget}</ErrorMessage>
-            ) : null}
-
-            <FormSubtitle>Et vos coordonnées ?</FormSubtitle>
-
-            <FormLabel>
-              <span>
-                Vous êtes...<RequiredSign>*</RequiredSign>
-              </span>
-              <Field name="youAre" as="select">
-                <option value="">--Veuillez sélectionner--</option>
-                <option value="Entreprise">Entreprise</option>
-                <option value="Association">Association</option>
-                <option value="Institution">Institution</option>
-                <option value="Particulier">Particulier</option>
-              </Field>
-              {errors.youAre && touched.youAre ? (
-                <ErrorMessage>{errors.youAre}</ErrorMessage>
-              ) : null}
-            </FormLabel>
-
-            <FormLabel>
-              <span>
-                Prénom<RequiredSign>*</RequiredSign>
-              </span>
-              <Field name="firstName" />
-              {errors.firstName && touched.firstName ? (
-                <ErrorMessage>{errors.firstName}</ErrorMessage>
-              ) : null}
-            </FormLabel>
-
-            <FormLabel>
-              <span>
-                Nom<RequiredSign>*</RequiredSign>
-              </span>
-              <Field name="lastName" />
-              {errors.lastName && touched.lastName ? (
-                <ErrorMessage>{errors.lastName}</ErrorMessage>
+              <Field name="name" />
+              {errors.name && touched.name ? (
+                <ErrorMessage>{errors.name}</ErrorMessage>
               ) : null}
             </FormLabel>
 
             <FormLabel>
               <span>
                 {" "}
-                Email<RequiredSign>*</RequiredSign>
+                Quel est votre email&nbsp;?<RequiredSign>*</RequiredSign>
               </span>
               <Field name="email" type="email" />
               {errors.email && touched.email ? (
@@ -402,45 +184,52 @@ export const ContactForm = () => {
             </FormLabel>
 
             <FormLabel>
-              <span>Numéro de téléphone</span>
-              <Field name="number" />
-            </FormLabel>
-
-            <FormLabel>
               <span>
-                Nom de votre entreprise / organisation
+                Et votre numéro de téléphone&nbsp;?
                 <RequiredSign>*</RequiredSign>
               </span>
-              <Field name="enterpriseName" />
-              {errors.enterpriseName && touched.enterpriseName ? (
-                <ErrorMessage>{errors.enterpriseName}</ErrorMessage>
+              <Field name="phone" />
+              {errors.phone && touched.phone ? (
+                <ErrorMessage>{errors.phone}</ErrorMessage>
               ) : null}
             </FormLabel>
 
             <FormLabel>
-              <span>
-                Et votre adresse postale (pour l'édition du devis)
-                <RequiredSign>*</RequiredSign>
-              </span>
-              <Field name="address" />
-              {errors.address && touched.address ? (
-                <ErrorMessage>{errors.address}</ErrorMessage>
+              <span>Message (optionnel)</span>
+              <Field
+                name="message"
+                as="textarea"
+                rows="2"
+                placeholder="Toute info qui vous semble utile."
+                style={{
+                  resize: "vertical",
+                  width: "100%",
+                  scrollBarColor: "orange",
+                }}
+              />
+              {errors.projectDescription && touched.projectDescription ? (
+                <ErrorMessage>{errors.projectDescription}</ErrorMessage>
               ) : null}
             </FormLabel>
-            {errors.length > 0 && touched ? (
-              <ErrorMessage>Veuillez tout remplir</ErrorMessage>
-            ) : null}
-            <Button type="submit" buttonMarginLeft={buttonMarginLeft}>
-              {buttonText}
-            </Button>
+
             {isFormSent && (
               <SuccessMessage>
-                Merci ! Nous avons bien reçu votre demande de devis et nous vous
-                recontacterons dans les plus brefs délais. <br />
+                Merci !
+                <br />
+                Nous avons bien reçu votre inscription et nous vous
+                recontacterons dans les plus brefs délais pour convenir d'une
+                date.
+                <br />
                 Pour toute demande complémentaire, n'hésitez pas à nous écrire
                 par mail à contact@cosmosagency.fr&nbsp;!
               </SuccessMessage>
             )}
+
+            <div style={{ textAlign: isPhone ? "inherit" : "center" }}>
+              <Button type="submit" buttonMarginLeft={buttonMarginLeft}>
+                {buttonText}
+              </Button>
+            </div>
           </Form>
         )}
       </Formik>

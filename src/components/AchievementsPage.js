@@ -1,10 +1,11 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 
 import { useMediaQuery } from "@mui/material";
 
 import Header from "./Header";
 import Main from "./Main";
 import Article from "./Article";
+import Button from "./Button";
 import Loader from "./Loader";
 
 import woodifullBackground from "../assets/images/background-images/woodifull-background.webp";
@@ -34,6 +35,7 @@ function Achievements() {
       <Main>
         <Article
           img={woodifullImage}
+          altTxt="Capture d'écran du site de Woodifull, client de l'agence Cosmos."
           imgStyle={{ height: "87%", transform: "translateY(51px)" }}
           backgroundColor="orange"
           backgroundImg={woodifullBackground}
@@ -42,6 +44,11 @@ function Achievements() {
           text2="Ils ont fait appel à Cosmos dans le cadre de l'amélioration de leur boutique e-commerce."
           buttonText="Voir le site"
           buttonLink="https://woodifull.com/"
+        />
+        <Button
+          link="/contact#main"
+          text="Contactez-nous"
+          internLink="true"
         />
       </Main>
     </>

@@ -174,7 +174,7 @@ function Article(props) {
             textAlign: "center",
           }}
         >
-          <img src={props.img} alt="" style={props.imgStyle} />
+          <img src={props.img} alt={props.altTxt} style={props.imgStyle} />
         </Aside>
       )}
     </StyledArticle>

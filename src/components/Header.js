@@ -66,7 +66,8 @@ function Header(props) {
           internLink={props.buttonInternLink}
         />
       )}
-      <AnimatedArrow link="#main" />
+
+      {!props.noArrow && <AnimatedArrow link="#main" />}
     </header>
   );
 }

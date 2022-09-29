@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 
 import { useMediaQuery } from "@mui/material";
 
@@ -21,7 +21,7 @@ function ContactPage() {
       <Header
         title="Contactez-nous"
         subtitle="Vous avez trouvé l'agence qui vous correspond."
-        buttonText="Contacter l'agence"
+        buttonText="Ma séance de conseil offerte"
         buttonLink="#main"
         arrowHidden={isPhone ? "true" : ""}
       />
@@ -29,8 +29,8 @@ function ContactPage() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: isPhone ? "1fr" : "1fr 2fr",
-            gridGap: "3rem",
+            gridTemplateColumns: isPhone ? "1fr" : "5fr 2fr",
+            gridGap: "2rem 5rem",
             fontSize: "2.5rem",
             textAlign: "left",
           }}
@@ -41,18 +41,25 @@ function ContactPage() {
               textAlign: "center",
               margin: "7rem 0 5rem",
               gridRow: "1",
-              gridColumn: "1 / 3",
+              gridColumn: isPhone ? "1" : "1 / 3",
             }}
           >
-            Nous sommes à votre disposition pour tout renseignement ou demande
-            de devis.
+            Profitez d'une séance de conseil offerte sans engagement pour faire
+            le point sur votre situation.
           </h2>
-          <aside style={{ gridRow: isPhone ? "3" : "2", gridColumns: "1" }}>
-            <ContactLinks />
-          </aside>
-          <article style={{ gridRow: "2", gridColumns: "2" }}>
+
+          <article style={{ gridRow: "2", gridColumns: "1" }}>
             <ContactForm />
           </article>
+          <aside
+            style={{
+              gridRow: isPhone ? "3" : "2",
+              gridColumns: isPhone ? "1" : "6",
+              paddingTop: "0.5rem",
+            }}
+          >
+            <ContactLinks />
+          </aside>
         </div>
       </Main>
     </>

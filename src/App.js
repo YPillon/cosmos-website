@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import ReactGA from "react-ga";
 
 import "./assets/css/index.css";
 
@@ -9,6 +10,18 @@ import Achievements from "./components/AchievementsPage";
 import PacksPage from "./components/PacksPage";
 import Footer from "./components/Footer";
 import ContactPage from "./components/ContactPage";
+import ErrorPage from "./components/ErrorPage";
+
+/* Google Analytics start */
+
+const TRACKING_ID = "UA-219956829-1";
+ReactGA.initialize(TRACKING_ID);
+ReactGA.pageview("/");
+ReactGA.pageview("/achievements");
+ReactGA.pageview("/packs");
+ReactGA.pageview("/contact");
+
+/* Google Analytics end */
 
 function App() {
   return (
@@ -20,6 +33,7 @@ function App() {
         <Route path="/achievements" element={<Achievements />} />
         <Route path="/packs" element={<PacksPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
 
       <Footer />

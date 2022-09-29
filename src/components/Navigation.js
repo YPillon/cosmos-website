@@ -53,6 +53,7 @@ function Navigation() {
 
     backgroundColor: "rgba(255, 255, 255, 0.85)",
     border: "solid 0.1rem #2b66e9",
+    borderTop: "none",
     boxShadow: "#2b66e9 0px 0.1rem 0.4rem",
     display: "flex",
     justifyContent: "space-between",
@@ -173,7 +174,7 @@ function Navigation() {
           width="262"
           height="70"
           src={logo}
-          alt="logo de l'agence Cosmos"
+          alt="Logo de Cosmos, agence web et mobile à Strasbourg."
           style={{
             height: "7rem",
             width: "auto",

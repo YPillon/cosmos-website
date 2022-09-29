@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import styled from "styled-components";
+import { useMediaQuery } from "@mui/material";
 
 import { IconContext } from "@react-icons/all-files";
 import { SiLinkedin } from "@react-icons/all-files/si/SiLinkedin";
@@ -45,6 +46,8 @@ const ContactLinks = () => {
   const [isPhoneCopied, setIsPhoneCopied] = useState(false);
   const [isAddressCopied, setIsAddressCopied] = useState(false);
 
+  const isTabletOrPhone = useMediaQuery("(max-width:1024px)");
+
   function copyToClipboard(text, line) {
     navigator.clipboard.writeText(text).then(() => {
       if (line === "email") {
@@ -75,12 +78,12 @@ const ContactLinks = () => {
       >
         <Li style={{ marginTop: "0" }}>
           <CustomLink
-            href="https://www.linkedin.com"
+            href="https://www.linkedin.com/company/88657226/"
             target="_blank"
             rel="noreferrer"
             title="Venez visiter notre page LinkedIn !"
           >
-            <SiLinkedin /> Cosmos Agency
+            <SiLinkedin /> Cosmos
           </CustomLink>
         </Li>
         <Li>
@@ -90,48 +93,56 @@ const ContactLinks = () => {
             rel="noreferrer"
             title="Venez visiter notre page Instagram !"
           >
-            <GrInstagram /> cosmosagency.fr
+            <GrInstagram /> @cosmosagency.fr
           </CustomLink>
         </Li>
-        <Li
-          onTouchEnd={(e) =>
-            copyToClipboard("contact@cosmosagency.fr", "email")
-          }
-          onClick={(e) => copyToClipboard("contact@cosmosagency.fr", "email")}
-          title="Cliquez pour copiez l'adresse mail"
-        >
-          <IoIosMail size="3rem" style={{ marginLeft: "-0.4rem" }} />{" "}
-          contact@cosmosagency.fr
-          <CopiedSpan
-            style={{
-              display: isEmailCopied ? "block" : "none",
-            }}
+        {!isTabletOrPhone && (
+          <Li
+            onClick={(e) => copyToClipboard("contact@cosmosagency.fr", "email")}
+            title="Cliquez pour copiez l'adresse mail"
           >
-            Copié !
-          </CopiedSpan>
-        </Li>
-
-        <Li
-          onTouchEnd={(e) => copyToClipboard("+33611441471", "phone")}
-          onClick={(e) => copyToClipboard("+33611441471", "phone")}
-          title="Cliquez pour copiez le numéro de téléphone"
-        >
-          <FaPhoneAlt /> 0611441471
-          <CopiedSpan
-            style={{
-              display: isPhoneCopied ? "block" : "none",
-            }}
+            <IoIosMail size="3rem" style={{ marginLeft: "-0.4rem" }} />{" "}
+            contact@cosmosagency.fr
+            <CopiedSpan
+              style={{
+                display: isEmailCopied ? "block" : "none",
+              }}
+            >
+              Copié !
+            </CopiedSpan>
+          </Li>
+        )}
+        {isTabletOrPhone && (
+          <Li>
+            <a href="mailto:contact@cosmosagency.fr">
+              <IoIosMail size="3rem" style={{ marginLeft: "-0.4rem" }} />{" "}
+              contact@cosmosagency.fr
+            </a>
+          </Li>
+        )}
+        {!isTabletOrPhone && (
+          <Li
+            onClick={(e) => copyToClipboard("+33611441471", "phone")}
+            title="Cliquez pour copiez le numéro de téléphone"
           >
-            Copié !
-          </CopiedSpan>
-        </Li>
+            <FaPhoneAlt /> 0611441471
+            <CopiedSpan
+              style={{
+                display: isPhoneCopied ? "block" : "none",
+              }}
+            >
+              Copié !
+            </CopiedSpan>
+          </Li>
+        )}
+        {isTabletOrPhone && (
+          <Li>
+            <a href="tel:+33611441471">
+              <FaPhoneAlt /> 0611441471
+            </a>
+          </Li>
+        )}
         <Li
-          onTouchEnd={(e) =>
-            copyToClipboard(
-              "16, impasse Quinta Florentina 67200 Strasbourg",
-              "address"
-            )
-          }
           onClick={(e) =>
             copyToClipboard(
               "16, impasse Quinta Florentina 67200 Strasbourg",

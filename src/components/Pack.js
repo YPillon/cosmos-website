@@ -66,10 +66,9 @@ function Pack(props) {
 
       <div style={{ textAlign: "center", margin: "7rem 0 0" }}>
         <Button
-          text="Je choisis ce pack"
-          link="/contact"
+          text="Rappelez-moi"
+          link="/contact#main"
           internLink="true"
-          triggerTransition={props.triggerTransition}
         />
       </div>
     </article>

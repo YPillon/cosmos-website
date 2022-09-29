@@ -17,6 +17,7 @@ import {
 } from "../assets/js/functions";
 
 const H2Link = styled.a`
+  font-size: 4rem;
   transition: all 0.25s ease-out;
   text-decoration: underline;
   &:hover {

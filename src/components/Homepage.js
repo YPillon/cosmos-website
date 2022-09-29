@@ -38,7 +38,7 @@ function Homepage() {
       <Header
         title="Passez au niveau supérieur."
         buttonText="C'est parti !"
-        buttonLink="/contact"
+        buttonLink="/contact#main"
         buttonInternLink="true"
       />
       <Main>
@@ -50,6 +50,7 @@ function Homepage() {
           Avec Cosmos, faites passer votre business au niveau supérieur !"
           text2="Cosmos, c’est une agence où 3 amis designer, développeur et photographe originaires de Strasbourg se sont retrouvés avec une seule et même motivation : permettre à tous les professionnels, institutions et associations de réaliser leur transformation digitale en fonction de leurs besoins et en utilisant les technologies les plus innovantes du marché."
           img={firstImage}
+          altTxt="Image d'illustration de l'agence Web Cosmos."
           imgStyle={{ height: "100%", transform: "translateX(-4.5rem)" }}
         />
         <Article
@@ -67,21 +68,23 @@ function Homepage() {
           backgroundColor="orange"
           backgroundImg={background3}
           title="Il est temps de passer au niveau supérieur."
-          text="Vous êtes prêt à faire le grand saut ? Vous avez encore besoin de renseignements ? Contactez-nous ! Nous nous ferons un plaisir de répondre à toutes vos questions et interrogations."
-          text2="C’est totalement gratuit et au moins  cela vous permettra d’avoir une idée plus claire des possibilités qui s’offrent à vous !"
+          text="Vous êtes prêt à faire le grand saut ? Vous avez encore besoin de renseignements ? Contactez-nous vite et bénficiez d'une séance de conseil offerte ! Nous nous ferons un plaisir de répondre à toutes vos questions et interrogations."
+          text2="C’est sans engagement et au moins  cela vous permettra d’avoir une idée plus claire des possibilités qui s’offrent à vous !"
           text3="À très vite !"
           img={secondImage}
+          altTxt="Image d'illustration de l'agence Web Cosmos."
           imgStyle={{ width: "auto", height: "100%" }}
         />
         <Review
           text="«&nbsp;Nous avons fait appel à Cosmos pour ajouter des fonctionnalités sur notre boutique en ligne et nous avons été entièrement satisfaits par le rendu. Ils ont parfaitement compris ce que nous voulions et l'ont réalisé avec professionnalisme.&nbsp;»"
           img={lEngelmann}
+          altTxt="Photo de Louise Engelmann, heureuse cliente de l'agence Cosmos."
           name="Louise Engelmann"
           job="Directeur général chez Woodifull"
         />
         <Button
-          text="Contacter l'agence"
-          link="/contact"
+          text="Ma séance de conseil offerte"
+          link="/contact#main"
           internLink="true"
         ></Button>
       </Main>
