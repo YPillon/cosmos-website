@@ -4,7 +4,8 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "5.0.1"
+    "react-scripts": "^5.0.1",
+    "react-snap": "^0.2.0"
   },
   "dependencies": {
     "@emailjs/browser": "^3.6.2",
@@ -25,7 +26,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postbuild": "react-snap"
   },
   "eslintConfig": {
     "extends": [

@@ -36,7 +36,7 @@ function Review(props) {
           width="80"
           height="80"
           src={props.img}
-          alt={props.altText}
+          alt={props.altTxt}
           style={{
             width: "100%",
             display: "block",
