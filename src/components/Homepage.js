@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 
 import { useMediaQuery } from "@mui/material";
+import ReactGA from "react-ga";
 
 import Header from "./Header";
 import Main from "./Main";
@@ -17,6 +18,9 @@ import background2 from "../assets/images/background-images/background3.webp";
 import background1 from "../assets/images/background-images/background1.webp";
 
 import lEngelmann from "../assets/images/louise-engelmann2.webp";
+
+/* Google Analytics */
+ReactGA.pageview("/");
 
 function Homepage() {
   const isPhone = useMediaQuery("(max-width:768px)");

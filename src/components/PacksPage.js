@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 
 import styled from "styled-components";
+import ReactGA from "react-ga";
 
 import Header from "./Header";
 import Main from "./Main";
@@ -24,6 +25,9 @@ const H2Link = styled.a`
     color: #fa8128;
   }
 `;
+
+/* Google Analytics */
+ReactGA.pageview("/packs");
 
 function PacksPage() {
   useEffect(() => {

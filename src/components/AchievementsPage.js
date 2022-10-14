@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 
 import { useMediaQuery } from "@mui/material";
+import ReactGA from "react-ga";
 
 import Header from "./Header";
 import Main from "./Main";
@@ -10,6 +11,9 @@ import Loader from "./Loader";
 
 import woodifullBackground from "../assets/images/background-images/woodifull-background.webp";
 import woodifullIncrustation from "../assets/images/woodifull-incrustation.webp";
+
+/* Google Analytics */
+ReactGA.pageview("/achievements");
 
 function Achievements() {
   const isPhone = useMediaQuery("(max-width:768px)");
@@ -45,11 +49,7 @@ function Achievements() {
           buttonText="Voir le site"
           buttonLink="https://woodifull.com/"
         />
-        <Button
-          link="/contact#main"
-          text="Contactez-nous"
-          internLink="true"
-        />
+        <Button link="/contact#main" text="Contactez-nous" internLink="true" />
       </Main>
     </>
   );

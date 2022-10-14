@@ -1,12 +1,16 @@
 import React, { useEffect } from "react";
 
 import { useMediaQuery } from "@mui/material";
+import ReactGA from "react-ga";
 
 import Header from "./Header";
 import Main from "./Main";
 import ContactLinks from "./ContactLinks";
 import { ContactForm } from "./ContactForm";
 import Loader from "./Loader";
+
+/* Google Analytics */
+ReactGA.pageview("/contact");
 
 function ContactPage() {
   const isPhone = useMediaQuery("(max-width:768px)");

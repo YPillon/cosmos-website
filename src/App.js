@@ -12,16 +12,9 @@ import Footer from "./components/Footer";
 import ContactPage from "./components/ContactPage";
 import ErrorPage from "./components/ErrorPage";
 
-/* Google Analytics start */
-
+/* Google Analytics */
 const TRACKING_ID = "UA-219956829-1";
 ReactGA.initialize(TRACKING_ID);
-ReactGA.pageview("/");
-ReactGA.pageview("/achievements");
-ReactGA.pageview("/packs");
-ReactGA.pageview("/contact");
-
-/* Google Analytics end */
 
 function App() {
   return (
