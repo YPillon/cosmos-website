@@ -10,7 +10,7 @@ import { GrInstagram } from "@react-icons/all-files/gr/GrInstagram";
 import { FaPhoneAlt } from "@react-icons/all-files/fa/FaPhoneAlt";
 import { IoIosMail } from "@react-icons/all-files/io/IoIosMail";
 
-import { slideDownAndUp } from "../assets/js/functions";
+import { slideDownAndUp } from "../assets/js/library";
 
 const Li = styled.li`
   position: relative;

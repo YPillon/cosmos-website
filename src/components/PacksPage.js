@@ -15,7 +15,7 @@ import {
   optionsInVitrineArray,
   includedInReservationArray,
   optionsInReservationArray,
-} from "../assets/js/functions";
+} from "../assets/js/library";
 
 const H2Link = styled.a`
   font-size: 4rem;

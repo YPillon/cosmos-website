@@ -11,6 +11,8 @@ import PacksPage from "./components/PacksPage";
 import Footer from "./components/Footer";
 import ContactPage from "./components/ContactPage";
 import ErrorPage from "./components/ErrorPage";
+import CGVPage from "./components/CGVPage";
+import RGPDPage from "./components/RGPDPage";
 
 /* Google Analytics */
 const TRACKING_ID = "UA-219956829-1";
@@ -27,6 +29,8 @@ function App() {
         <Route path="/packs" element={<PacksPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<ErrorPage />} />
+        <Route path="/cgv" element={<CGVPage />} />
+        <Route path="/rgpd" element={<RGPDPage />} />
       </Routes>
 
       <Footer />

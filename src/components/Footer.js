@@ -6,7 +6,7 @@ import { useMediaQuery } from "@mui/material";
 import ReactGA from "react-ga";
 
 import logo from "../assets/images/logo.webp";
-import { slideDownAndUp } from "../assets/js/functions";
+import { slideDownAndUp } from "../assets/js/library";
 
 const FooterSpan1 = styled.span`
   width: fit-content;
@@ -82,8 +82,8 @@ function Footer() {
         display: "grid",
         gridTemplateColumns: isTabletOrPhone ? "1fr" : "1fr 1fr 1fr",
         gridTemplateRows: isTabletOrPhone
-          ? "1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr"
-          : "1fr 1fr 1fr 1fr",
+          ? "1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr"
+          : "1fr 1fr 1fr 1fr 1fr",
       }}
     >
       <Link to="/" style={{ gridColumn: "1", gridRow: "1 / 2" }}>
@@ -95,11 +95,32 @@ function Footer() {
           style={{ height: "7rem" }}
         />
       </Link>
-      <span
+
+      <Link
+        to="/cgv"
         style={{
           fontSize: "1.5rem",
           gridColumn: "1",
           gridRow: isTabletOrPhone ? "10" : "3",
+        }}
+      >
+        <span>Conditions générales de vente</span>
+      </Link>
+      <Link
+        to="/cgv"
+        style={{
+          fontSize: "1.5rem",
+          gridColumn: "1",
+          gridRow: isTabletOrPhone ? "11" : "4",
+        }}
+      >
+        <span>Politique de confidentialité</span>
+      </Link>
+      <span
+        style={{
+          fontSize: "1.5rem",
+          gridColumn: "1",
+          gridRow: isTabletOrPhone ? "12" : "5",
         }}
       >
         Tous droits réservés ©️ {dateBuilder()}
