@@ -7,7 +7,7 @@ import "./assets/css/index.css";
 import Navigation from "./components/Navigation";
 import Homepage from "./components/Homepage";
 import Achievements from "./components/AchievementsPage";
-import PacksPage from "./components/PacksPage";
+/*import PacksPage from "./components/PacksPage";*/
 import Footer from "./components/Footer";
 import ContactPage from "./components/ContactPage";
 import ErrorPage from "./components/ErrorPage";
@@ -26,7 +26,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/achievements" element={<Achievements />} />
-        <Route path="/packs" element={<PacksPage />} />
+        {/*<Route path="/packs" element={<PacksPage />} />*/}
         <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<ErrorPage />} />
         <Route path="/cgv" element={<CGVPage />} />

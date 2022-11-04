@@ -1,21 +1,36 @@
 import React, { useEffect } from "react";
-
-import { useMediaQuery } from "@mui/material";
 import ReactGA from "react-ga";
 
 import Header from "./Header";
-import Main from "./Main";
-import Button from "./Button";
-import Article from "./Article";
 import Review from "./Review";
 import Loader from "./Loader";
+import ContactBox from "./ContactBox";
 
-import designImage from "../assets/images/design.webp";
-import happyImage from "../assets/images/happy-woman.webp";
-
-import background3 from "../assets/images/background-images/background2.webp";
-import background2 from "../assets/images/background-images/background3.webp";
-import background1 from "../assets/images/background-images/background1.webp";
+//Styled Components
+import {
+  Separator,
+  MainWrapper,
+  ArticleWrapper,
+  PresentationTextWrapper,
+  ArticleTitle,
+  PresentationImageProxy,
+  OutlineTitleWord,
+  Bold,
+  Paragraph,
+  List,
+  ListWithBulletsOutside,
+  ListItem,
+  CardWrapper,
+  Card,
+  CardImageWrapper,
+  CardImageProxy,
+  CardContent,
+  CardContentTitle,
+  FounderSection,
+  PhotoFounderProxy,
+  ParagraphAboutFounder,
+  FounderTextWrapper,
+} from "../assets/js/StyledComponents";
 
 import lEngelmann from "../assets/images/louise-engelmann2.webp";
 
@@ -23,62 +38,184 @@ import lEngelmann from "../assets/images/louise-engelmann2.webp";
 ReactGA.pageview("/");
 
 function Homepage() {
-  const isPhone = useMediaQuery("(max-width:768px)");
-  const isTablet = useMediaQuery("(min-width: 769px) and (max-width:1024px)");
-  const isSmallDesktop = useMediaQuery(
-    "(min-width: 1025px) and (max-width:1300px)"
-  );
-
   useEffect(() => {
     document.title = "Cosmos, agence web et mobile à Strasbourg";
   }, []);
-
-  const firstImage = isTablet || isPhone || isSmallDesktop ? "" : designImage;
-  const secondImage = isTablet || isPhone || isSmallDesktop ? "" : happyImage;
 
   return (
     <>
       <Loader />
       <Header
-        title="Passez au niveau supérieur."
-        buttonText="C'est parti !"
+        paddingTop="37vh"
+        title="Boostez votre image de marque"
+        subtitle="et vos ventes !"
+        buttonText="Réserver un appel"
         buttonLink="/contact#main"
         buttonInternLink="true"
       />
-      <Main>
-        <Article
-          backgroundColor="blue"
-          backgroundImg={background1}
-          title="Une équipe de passionnés."
-          text="Besoin d’un site pour présenter votre entreprise et votre offre ? Proposer la réservation en ligne à vos clients ? Une application pour vendre vos produits ?
-          Avec Cosmos, faites passer votre business au niveau supérieur !"
-          text2="Cosmos, c’est une agence où 3 amis designer, développeur et photographe originaires de Strasbourg se sont retrouvés avec une seule et même motivation : permettre à tous les professionnels, institutions et associations de réaliser leur transformation digitale en fonction de leurs besoins et en utilisant les technologies les plus innovantes du marché."
-          img={firstImage}
-          altTxt="Image d'illustration de l'agence Web Cosmos."
-          imgStyle={{ height: "100%", transform: "translateX(-4.5rem)" }}
-        />
-        <Article
-          backgroundColor="purple"
-          backgroundImg={background2}
-          title="Un service 100% sur-mesure."
-          text="Chez Cosmos, nous avons fait le choix d’un service totalement personnalisé pour répondre avec précision à vos besoins, c’est pourquoi nous faisons du 100% sur-mesure. Sans fioritures. Juste l’essentiel.
-          Que vous souhaitiez créer un site vitrine, un site e-commerce, une application mobile ou une simple landing page, nous sommes là pour vous conseiller et vous accompagner de A à Z.          
-          "
-          text2="Il nous tient à cœur de vous offrir la meilleure expérience possible. Nous nous adaptons entièrement à votre budget et à vos besoins ! Architecture, design,  UI/UX, développement, hébergement, image de marque,  nous nous chargeons de tous les aspects de votre projet digital pour vous permettre d’avoir une présence en ligne adéquate et de qualité."
-          text3="En plus de notre offre sur-mesure, nous proposons des packs clé en main, correspondant aux demandes les plus fréquentes que nous avons rencontrées. C’est parfait pour les professionnels qui ont besoin de réaliser leur projet digital rapidement tout en réduisant les frais !"
-        />
-        <Button text="Voir nos packs" link="/packs" internLink="true"></Button>
-        <Article
-          backgroundColor="orange"
-          backgroundImg={background3}
-          title="Il est temps de passer au niveau supérieur."
-          text="Vous êtes prêt à faire le grand saut ? Vous avez encore besoin de renseignements ? Contactez-nous vite et bénficiez d'une séance de conseil offerte ! Nous nous ferons un plaisir de répondre à toutes vos questions et interrogations."
-          text2="C’est sans engagement et au moins  cela vous permettra d’avoir une idée plus claire des possibilités qui s’offrent à vous !"
-          text3="À très vite !"
-          img={secondImage}
-          altTxt="Image d'illustration de l'agence Web Cosmos."
-          imgStyle={{ width: "auto", height: "100%" }}
-        />
+      <MainWrapper id="main">
+        <Separator />
+        {/*Présentation*/}
+        <ArticleWrapper>
+          <PresentationTextWrapper>
+            <ArticleTitle>
+              Bâtissez une <OutlineTitleWord>image de marque</OutlineTitleWord>{" "}
+              solide
+            </ArticleTitle>
+
+            <Paragraph>Vous êtes e-commerçant et vous voulez&nbsp;:</Paragraph>
+
+            <List>
+              <ListItem>
+                Améliorer votre <Bold>image de marque</Bold>
+              </ListItem>
+              <ListItem>
+                <Bold>Augmenter</Bold> vos ventes
+              </ListItem>
+              <ListItem>
+                Vous <Bold>démarquer</Bold> de la concurrence
+              </ListItem>
+              <ListItem>
+                Gagner en <Bold>notoriété</Bold>
+              </ListItem>
+            </List>
+            <Paragraph>Vous êtes au bon endroit.</Paragraph>
+            <Paragraph>
+              Chez Cosmos, on vous accompagne dans la création de votre site
+              e-commerce pour vous aider à avoir une image de marque{" "}
+              <Bold>au top</Bold>, des clients <Bold>récurrents</Bold> et faire{" "}
+              <Bold>exploser</Bold> votre chiffre d'affaire&nbsp;!
+            </Paragraph>
+          </PresentationTextWrapper>
+          <PresentationImageProxy></PresentationImageProxy>
+        </ArticleWrapper>
+
+        <ArticleWrapper reverse>
+          <PresentationTextWrapper>
+            <ArticleTitle>
+              <OutlineTitleWord>Fidélisez</OutlineTitleWord> vos clients
+            </ArticleTitle>
+
+            <Paragraph>
+              Fidélisez vos clients avec un site pro, réalisé par des pros.
+            </Paragraph>
+            <Paragraph>Comment ça marche ?</Paragraph>
+            <Paragraph>
+              C'est simple. On discute ensemble de votre projet pour{" "}
+              <Bold>comprendre</Bold> en profondeur votre <Bold>besoin</Bold>,
+              votre marché et on vous <Bold>conseille</Bold>.
+            </Paragraph>
+            <Paragraph>
+              Puis on vous accompagne de <Bold>A à Z</Bold> dans sa réalisation,
+              avec à la sortie un site <Bold>personnalisé</Bold> au millimètre
+              qui <Bold>convertit</Bold>, qui est <Bold>beau</Bold>, optimisé
+              pour le SEO et qui fait passer vos prospects à{" "}
+              <Bold>l'action</Bold> en achetant votre dernier produit &nbsp;!
+            </Paragraph>
+          </PresentationTextWrapper>
+          <PresentationImageProxy reverse></PresentationImageProxy>
+        </ArticleWrapper>
+
+        {/* Services section */}
+        <section
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            width: "100%",
+            margin: "0 0 20rem",
+          }}
+        >
+          <ArticleTitle margin="0rem 0 10rem">
+            <OutlineTitleWord>
+              Création de boutiques e-commerce
+            </OutlineTitleWord>{" "}
+            / <OutlineTitleWord color="#fa8128">Custom themes</OutlineTitleWord>{" "}
+            / <OutlineTitleWord>Customs apps</OutlineTitleWord>
+          </ArticleTitle>
+          <CardWrapper>
+            <Card>
+              <CardImageWrapper>
+                <CardImageProxy></CardImageProxy>
+              </CardImageWrapper>
+              <CardContent>
+                <CardContentTitle>Création de votre boutique</CardContentTitle>
+                <ListWithBulletsOutside>
+                  <ListItem>Choix du thème</ListItem>
+                  <ListItem>Intégration de votre catalogue produit</ListItem>
+                  <ListItem>Configuration du checkout</ListItem>
+                  <ListItem>Mise en place d'une solution de livraison</ListItem>
+                  <ListItem>Optimisation SEO</ListItem>
+                  <ListItem>Hébergement</ListItem>
+                  <ListItem>Maintenance</ListItem>
+                </ListWithBulletsOutside>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardImageWrapper>
+                <CardImageProxy></CardImageProxy>
+              </CardImageWrapper>
+              <CardContent>
+                <CardContentTitle>
+                  Développement de thèmes customisés
+                </CardContentTitle>
+                <ListWithBulletsOutside>
+                  <ListItem>Thème personnalisé</ListItem>
+                  <ListItem>Adapté à votre besoin</ListItem>
+                  <ListItem>Expérience utilisateur unique</ListItem>
+                  <ListItem>Custom storefront</ListItem>
+                </ListWithBulletsOutside>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardImageWrapper>
+                <CardImageProxy></CardImageProxy>
+              </CardImageWrapper>
+              <CardContent>
+                <CardContentTitle>
+                  Développement d'apps Shopify
+                </CardContentTitle>
+                <ListWithBulletsOutside>
+                  <ListItem>Développement de custom apps</ListItem>
+                  <ListItem>
+                    Personnalisation à votre situation précise
+                  </ListItem>
+                  <ListItem>Intégration à votre boutique</ListItem>
+                  <ListItem>Hébergement de l'app</ListItem>
+                </ListWithBulletsOutside>
+              </CardContent>
+            </Card>
+          </CardWrapper>
+
+          <Paragraph width="60%">
+            Notre expertise nous permet de contrôler tous les aspects de
+            l'expérience utilisateur et de mettre en oeuvre une solution avec
+            une <Bold>personnalisation to-tale</Bold>.
+          </Paragraph>
+        </section>
+
+        {/*About section */}
+        <FounderSection>
+          <PhotoFounderProxy></PhotoFounderProxy>
+          <FounderTextWrapper>
+            <ParagraphAboutFounder>
+              Passionné par l'entrepreneuriat, l'informatique et le commerce,
+              j'ai créé Cosmos&nbsp;: une agence digitale spécialisée dans le
+              développement de sites e-commerce sur Shopify.
+            </ParagraphAboutFounder>
+            <ParagraphAboutFounder>
+              Chez Cosmos, on accompagne les e-commerçants pour développer leur
+              image de marque, fidéliser leurs clients, augmenter leur LTV et
+              leurs ventes.
+            </ParagraphAboutFounder>
+            <ParagraphAboutFounder>
+              On a hâte de vous accompagner pour bâtir votre image de marque et
+              séduire vos prochains clients !
+            </ParagraphAboutFounder>
+            <ParagraphAboutFounder>Younes</ParagraphAboutFounder>
+          </FounderTextWrapper>
+        </FounderSection>
+
         <Review
           text="«&nbsp;Nous avons fait appel à Cosmos pour ajouter des fonctionnalités sur notre boutique en ligne et nous avons été entièrement satisfaits par le rendu. Ils ont parfaitement compris ce que nous voulions et l'ont réalisé avec professionnalisme.&nbsp;»"
           img={lEngelmann}
@@ -86,12 +223,9 @@ function Homepage() {
           name="Louise Engelmann"
           job="Directeur général chez Woodifull"
         />
-        <Button
-          text="Ma séance de conseil offerte"
-          link="/contact#main"
-          internLink="true"
-        ></Button>
-      </Main>
+
+        <ContactBox />
+      </MainWrapper>
     </>
   );
 }

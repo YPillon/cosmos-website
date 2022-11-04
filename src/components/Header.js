@@ -4,41 +4,28 @@ import styled from "styled-components";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 import Button from "./Button";
-import AnimatedArrow from "./AnimatedArrow";
+import AnimatedArrow from "./Arrow";
 
 const Title = styled.h1`
-  font-size: 8rem;
-  background: linear-gradient(to right, #3f008d, #2b66e9, #fa8128);
-  -webkit-background-clip: text;
-  color: transparent;
+  font-size: ${(props) => props.fontSize};
+  color: #fa8128;
   width: fit-content;
   -webkit-text-stroke: #3f008d 0.18rem;
   padding-top: ${(props) => props.paddingTop};
+  margin-bottom: 1rem;
+  text-shadow: -2px 4px 1px #3f008d;
 `;
 
 const Subtitle = styled.h2`
   font-size: 5rem;
-  background: #2b66e9;
-  -webkit-background-clip: text;
-  color: transparent;
+  color: #2b66e9;
   width: fit-content;
   -webkit-text-stroke: #3f008d 0.18rem;
+  text-shadow: -2px 4px 1px #fa8128;
 `;
 
 function Header(props) {
   const isPhone = useMediaQuery("(max-width:768px)");
-
-  let paddingTop;
-
-  if (!props.subtitle && !isPhone) {
-    paddingTop = "35.8vh";
-  } else if (props.subtitle && !isPhone) {
-    paddingTop = "28.8vh";
-  } else if (props.subtitle && isPhone) {
-    paddingTop = "19vh";
-  } else if (!props.subtitle && isPhone) {
-    paddingTop = "25vh";
-  }
 
   const subtitle = props.subtitle ? (
     <>
@@ -53,8 +40,8 @@ function Header(props) {
   return (
     <header style={{ height: "100vh", position: "relative" }}>
       <Title
-        style={{ fontSize: isPhone ? "6rem" : "" }}
-        paddingTop={paddingTop}
+        fontSize={isPhone ? "6rem" : "8rem"}
+        paddingTop={isPhone ? "28vh" : "35vh"}
       >
         {props.title}
       </Title>
@@ -64,6 +51,7 @@ function Header(props) {
           text={props.buttonText}
           link={props.buttonLink}
           internLink={props.buttonInternLink}
+          glow="1"
         />
       )}
 

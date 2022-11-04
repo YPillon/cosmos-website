@@ -12,11 +12,11 @@ const FormTitle = styled.h1`
   font-size: 2.5rem;
   position: relative;
   width: fit-content;
-  margin: 0rem 0 3rem;
+  margin: 0rem 0 5rem;
   &::before {
     content: "";
     position: absolute;
-    bottom: -1.2rem;
+    bottom: -2rem;
     left: 0%;
     width: 33%;
     height: 0.3rem;
@@ -29,6 +29,10 @@ const FormTitle = styled.h1`
 const FormLabel = styled.label`
   display: flex;
   flex-direction: column;
+`;
+
+const LabelSpan = styled.span`
+  margin-bottom: 1rem;
 `;
 
 const ErrorMessage = styled.p`
@@ -46,7 +50,7 @@ const Button = styled.button`
       font-size: 3rem;
       width: fit-content;
       padding: 0.2rem 1.2rem;
-      margin: 5rem 0;
+      margin: 2rem 0;
       font-weight: bolder;
       cursor: pointer;
       color: #3f008d;
@@ -163,9 +167,9 @@ export const ContactForm = () => {
             </FormTitle>
 
             <FormLabel>
-              <span>
+              <LabelSpan>
                 Comment vous appelez-vous&nbsp;?<RequiredSign>*</RequiredSign>
-              </span>
+              </LabelSpan>
               <Field name="name" />
               {errors.name && touched.name ? (
                 <ErrorMessage>{errors.name}</ErrorMessage>
@@ -173,10 +177,10 @@ export const ContactForm = () => {
             </FormLabel>
 
             <FormLabel>
-              <span>
+              <LabelSpan>
                 {" "}
                 Quel est votre email&nbsp;?<RequiredSign>*</RequiredSign>
-              </span>
+              </LabelSpan>
               <Field name="email" type="email" />
               {errors.email && touched.email ? (
                 <ErrorMessage>{errors.email}</ErrorMessage>
@@ -184,10 +188,10 @@ export const ContactForm = () => {
             </FormLabel>
 
             <FormLabel>
-              <span>
+              <LabelSpan>
                 Et votre numéro de téléphone&nbsp;?
                 <RequiredSign>*</RequiredSign>
-              </span>
+              </LabelSpan>
               <Field name="phone" />
               {errors.phone && touched.phone ? (
                 <ErrorMessage>{errors.phone}</ErrorMessage>
@@ -195,7 +199,7 @@ export const ContactForm = () => {
             </FormLabel>
 
             <FormLabel>
-              <span>Message (optionnel)</span>
+              <LabelSpan>Message (optionnel)</LabelSpan>
               <Field
                 name="message"
                 as="textarea"
@@ -205,6 +209,7 @@ export const ContactForm = () => {
                   resize: "vertical",
                   width: "100%",
                   scrollBarColor: "orange",
+                  height: "5rem",
                 }}
               />
               {errors.projectDescription && touched.projectDescription ? (

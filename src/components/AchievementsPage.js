@@ -5,7 +5,7 @@ import ReactGA from "react-ga";
 
 import Header from "./Header";
 import Main from "./Main";
-import Article from "./Article";
+import Article from "./RealizationArticle";
 import Button from "./Button";
 import Loader from "./Loader";
 

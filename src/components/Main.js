@@ -18,12 +18,17 @@ function Main(props) {
   } else if (isSmallDesktop) {
     mainWidth = { width: "90rem" };
   } else {
-    mainWidth = { width: "120rem" };
+    mainWidth = { width: /*"120rem"*/ "90%" };
   }
 
   return (
     <main
-      style={{ ...mainWidth, margin: "auto auto", textAlign: "center" }}
+      style={{
+        ...mainWidth,
+        margin: "0 5%",
+        textAlign: "center",
+        fontSize: "1.8rem",
+      }}
       id="main"
     >
       <div style={{ height: "8rem" }}></div>

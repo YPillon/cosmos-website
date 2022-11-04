@@ -9,17 +9,17 @@ Color 3 : #fa8128
   font-family: Arial;
   margin: 0;
   padding: 0;
-  color: #252525;
+  color: #2c2e4b;
 }
 
 html {
   font-size: 62.5%;
-  height: 100%;
+  height: 130%;
   scroll-behavior: smooth;
   overflow-x: hidden;
-  background-image: url(../images/fond-image.webp);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.4) 60%, white), url(../images/fond-image.webp);
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
 }
 

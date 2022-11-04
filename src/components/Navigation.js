@@ -7,9 +7,9 @@ import logo from "../assets/images/logo.webp";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 const NavSpan = styled.span`
-  font-size: 3rem;
+  font-size: 2.6rem;
   color: white;
-  -webkit-text-stroke: 0.15rem #2b66e9;
+  -webkit-text-stroke: 0.1rem #2b66e9;
   &::before {
     content: "";
     transition: ease-out 0.2s;
@@ -17,7 +17,7 @@ const NavSpan = styled.span`
     top: 3.7rem;
     left: -2.5%;
     width: 105%;
-    height: 0.3rem;
+    height: 0.25rem;
     background: white;
     border: solid #2b66e9 0.1rem;
     border-radius: 1rem;
@@ -48,8 +48,8 @@ function Navigation() {
     right: "0",
     left: "0",
     width: "100vw",
-    height: "10rem",
-    padding: "0 3%",
+    height: "9rem",
+    padding: "0 5%",
 
     backgroundColor: "rgba(255, 255, 255, 0.85)",
     border: "solid 0.1rem #2b66e9",
@@ -159,7 +159,7 @@ function Navigation() {
 
   const logoStyle = {
     width: "fit-content",
-    marginTop: isTabletOrPhone ? "1.4rem" : "0",
+    marginTop: isTabletOrPhone ? "1.3rem" : "0",
     transition: "all 0.75s 0.15s ease-in-out",
   };
 
@@ -174,9 +174,9 @@ function Navigation() {
           width="262"
           height="70"
           src={logo}
-          alt="Logo de Cosmos, agence web et mobile à Strasbourg."
+          alt="Logo de Cosmos, agence spécialisée dans le développement de boutiques et d'apps e-commerce sur Shopify."
           style={{
-            height: "7rem",
+            height: "6rem",
             width: "auto",
             display: "block",
             position: isTabletOrPhone ? "inherit" : "inherit",
@@ -199,13 +199,7 @@ function Navigation() {
             <NavSpan>Réalisations</NavSpan>
           </Link>
         </NavLi>
-        <NavLi
-          style={{ margin: isTabletOrPhone ? "0 0 4rem" : "0 0 0 4.5rem" }}
-        >
-          <Link to="/packs" onClick={() => setIsMenuOpen(false)}>
-            <NavSpan>Nos Packs</NavSpan>
-          </Link>
-        </NavLi>
+        
         <NavLi
           style={{ margin: isTabletOrPhone ? "0 0 4rem" : "0 0 0 4.5rem" }}
         >
@@ -220,7 +214,7 @@ function Navigation() {
           style={{
             cursor: "pointer",
             position: "absolute",
-            height: "10rem",
+            height: "9rem",
             right: "3%",
             top: "0%",
           }}

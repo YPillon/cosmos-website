@@ -32,11 +32,14 @@ function ContactPage() {
       <Main>
         <div
           style={{
-            display: "grid",
+            /*display: "grid",
             gridTemplateColumns: isPhone ? "1fr" : "5fr 2fr",
-            gridGap: "2rem 5rem",
+            gridGap: "2rem 5rem",*/
             fontSize: "2.5rem",
             textAlign: "left",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
           <h2
@@ -44,18 +47,20 @@ function ContactPage() {
               fontSize: "4rem",
               textAlign: "center",
               margin: "7rem 0 5rem",
-              gridRow: "1",
-              gridColumn: isPhone ? "1" : "1 / 3",
+              /*gridRow: "1",
+              gridColumn: isPhone ? "1" : "1 / 3",*/
             }}
           >
             Profitez d'une séance de conseil offerte sans engagement pour faire
             le point sur votre situation.
           </h2>
 
-          <article style={{ gridRow: "2", gridColumns: "1" }}>
+          <ContactForm />
+
+          {/*<article style={{ gridRow: "2", gridColumns: "1" }}>
             <ContactForm />
-          </article>
-          <aside
+          </article>*/}
+          {/*<aside
             style={{
               gridRow: isPhone ? "3" : "2",
               gridColumns: isPhone ? "1" : "6",
@@ -63,7 +68,7 @@ function ContactPage() {
             }}
           >
             <ContactLinks />
-          </aside>
+          </aside>*/}
         </div>
       </Main>
     </>

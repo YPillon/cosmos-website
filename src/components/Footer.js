@@ -6,7 +6,11 @@ import { useMediaQuery } from "@mui/material";
 import ReactGA from "react-ga";
 
 import logo from "../assets/images/logo.webp";
-import { slideDownAndUp } from "../assets/js/library";
+import { slideDownAndUp } from "../assets/js/StyledComponents";
+
+const StyledFooter = styled.footer`
+  background: #2c2e4b;
+`;
 
 const FooterSpan1 = styled.span`
   width: fit-content;
@@ -72,7 +76,26 @@ function Footer() {
   };
 
   return (
-    <footer
+    /*Les différentes section du footer sont :
+1. Logo, CGV, RGPD, Copyright
+2. Plan du site : Accueil, Réalisations, Contact
+3. Mail, Téléphone
+*/
+
+    <StyledFooter>
+      <img
+        width="262"
+        height="70"
+        src={logo}
+        alt="logo de l'agence Cosmos"
+        style={{ height: "7rem" }}
+      />
+    </StyledFooter>
+  );
+}
+
+/*
+<footer
       style={{
         justifyContent: "center",
         padding: "8rem 0 0",
@@ -87,13 +110,7 @@ function Footer() {
       }}
     >
       <Link to="/" style={{ gridColumn: "1", gridRow: "1 / 2" }}>
-        <img
-          width="262"
-          height="70"
-          src={logo}
-          alt="logo de l'agence Cosmos"
-          style={{ height: "7rem" }}
-        />
+        
       </Link>
 
       <Link
@@ -183,7 +200,7 @@ function Footer() {
         }}
       >
         <FooterSpan1>Instagram</FooterSpan1>
-      </a>
+      </a>*
 
       {!isTabletOrPhone && (
         <FooterSpan
@@ -239,7 +256,6 @@ function Footer() {
         </FooterLink>
       )}
     </footer>
-  );
-}
+    */
 
 export default Footer;
