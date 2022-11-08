@@ -14,7 +14,7 @@ Color 3 : #fa8128
 
 html {
   font-size: 62.5%;
-  height: 130%;
+  height: 140%;
   scroll-behavior: smooth;
   overflow-x: hidden;
   background-image: linear-gradient(rgba(255, 255, 255, 0.4) 60%, white), url(../images/fond-image.webp);
@@ -48,7 +48,6 @@ body {
 
 .App {
   height: 100%;
-  margin: 0 5%;
   position: relative;
 }
 

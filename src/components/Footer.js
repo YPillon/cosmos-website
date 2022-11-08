@@ -5,71 +5,19 @@ import styled from "styled-components";
 import { useMediaQuery } from "@mui/material";
 import ReactGA from "react-ga";
 
-import logo from "../assets/images/logo.webp";
-import { slideDownAndUp } from "../assets/js/StyledComponents";
+import {
+  StyledFooter,
+  FooterColumn,
+  FooterLink,
+  FooterSpan,
+  FooterTitle,
+} from "../assets/js/StyledComponents";
 
-const StyledFooter = styled.footer`
-  background: #2c2e4b;
-`;
-
-const FooterSpan1 = styled.span`
-  width: fit-content;
-  transition: all 0.25s ease-out;
-  &:hover {
-    color: #fa8128;
-  }
-`;
-
-const FooterSpan = styled.span`
-  text-align: center;
-  width: fit-content;
-  cursor: pointer;
-  transition: all 0.25s ease-out;
-  &:hover {
-    color: #fa8128;
-  }
-`;
-
-const FooterLink = styled.a`
-  text-align: center;
-  width: fit-content;
-  cursor: pointer;
-  transition: all 0.25s ease-out;
-  &:hover {
-    color: #fa8128;
-  }
-`;
-
-const CopiedSpan = styled.span`
-  font-size: 1.7rem;
-  color: #fa8128;
-  animation: ${slideDownAndUp} 2s ease-in-out;
+const StyledReactRouterLink = styled(Link)`
+  margin: 1rem 0;
 `;
 
 function Footer() {
-  const [isEmailCopied, setIsEmailCopied] = useState(false);
-  const [isPhoneCopied, setIsPhoneCopied] = useState(false);
-
-  const isTabletOrPhone = useMediaQuery("(max-width:1024px)");
-
-  function copyToClipboard(text, line) {
-    navigator.clipboard.writeText(text).then(() => {
-      if (line === "email") {
-        setIsEmailCopied(true);
-        setTimeout(() => {
-          setIsEmailCopied(false);
-        }, 2000);
-      } else if (line === "phone") {
-        setIsPhoneCopied(true);
-        setTimeout(() => {
-          setIsPhoneCopied(false);
-        }, 2000);
-      } else {
-        return;
-      }
-    });
-  }
-
   const dateBuilder = () => {
     let date = new Date();
     return date.getFullYear();
@@ -83,13 +31,37 @@ function Footer() {
 */
 
     <StyledFooter>
-      <img
-        width="262"
-        height="70"
-        src={logo}
-        alt="logo de l'agence Cosmos"
-        style={{ height: "7rem" }}
-      />
+      <FooterColumn>
+        <FooterTitle>Légal</FooterTitle>
+        <StyledReactRouterLink to="cgv">
+          <FooterLink>Conditions générales de vente</FooterLink>
+        </StyledReactRouterLink>
+        <StyledReactRouterLink to="rgpd">
+          <FooterLink>Politique de confidentialité</FooterLink>
+        </StyledReactRouterLink>
+        <FooterSpan>Tous droits réservés ©️ {dateBuilder()}</FooterSpan>
+      </FooterColumn>
+
+      <FooterColumn>
+        <FooterTitle>Plan du site</FooterTitle>
+        <StyledReactRouterLink to="/">
+          <FooterLink>Accueil</FooterLink>
+        </StyledReactRouterLink>
+        <StyledReactRouterLink to="/achievements">
+          <FooterLink>Réalisations</FooterLink>
+        </StyledReactRouterLink>
+        <StyledReactRouterLink to="/contact">
+          <FooterLink>Contact</FooterLink>
+        </StyledReactRouterLink>
+      </FooterColumn>
+
+      <FooterColumn>
+        <FooterTitle>Informations</FooterTitle>
+        <FooterLink href="mailto:younes@cosmosagency.fr">
+          younes@cosmosagency.fr
+        </FooterLink>
+        <FooterLink href="tel:+33611441471">0611441471</FooterLink>
+      </FooterColumn>
     </StyledFooter>
   );
 }

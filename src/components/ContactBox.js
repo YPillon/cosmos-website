@@ -24,14 +24,14 @@ function ContactBox() {
           link="./contact#main"
           buttonInternLink="true"
           textColor="#ffffff"
-          customMargin="0"
+          customMargin="1rem"
         />
         <Button
           text="Contacter sur Linkedin"
           link="https://www.linkedin.com/in/younes-pillon"
           textColor="#ffffff"
           backgroundColor="#2b66e9"
-          customMargin="0"
+          customMargin="1rem"
         />
       </ContactButtonsWrapper>
     </ContactBoxStyled>

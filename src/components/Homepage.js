@@ -13,26 +13,34 @@ import {
   ArticleWrapper,
   PresentationTextWrapper,
   ArticleTitle,
-  PresentationImageProxy,
+  PresentationImageWhy,
+  PresentationImageHow,
+  WhyImage,
+  ShadowDiv,
   OutlineTitleWord,
   Bold,
   Paragraph,
   List,
   ListWithBulletsOutside,
   ListItem,
+  ServiceSectionWrapper,
   CardWrapper,
   Card,
   CardImageWrapper,
   CardImageProxy,
   CardContent,
   CardContentTitle,
+  ParagraphServiceSection,
   FounderSection,
-  PhotoFounderProxy,
+  FounderSectionWrapper,
+  PhotoFounderContainer,
+  PhotoFounder,
   ParagraphAboutFounder,
   FounderTextWrapper,
 } from "../assets/js/StyledComponents";
 
 import lEngelmann from "../assets/images/louise-engelmann2.webp";
+import founderImage from "../assets/images/founder-image.webp";
 
 /* Google Analytics */
 ReactGA.pageview("/");
@@ -48,7 +56,7 @@ function Homepage() {
       <Header
         paddingTop="37vh"
         title="Boostez votre image de marque"
-        subtitle="et vos ventes !"
+        subtitle="avec une boutique Shopify au top&nbsp;💎"
         buttonText="Réserver un appel"
         buttonLink="/contact#main"
         buttonInternLink="true"
@@ -84,16 +92,22 @@ function Homepage() {
               Chez Cosmos, on vous accompagne dans la création de votre site
               e-commerce pour vous aider à avoir une image de marque{" "}
               <Bold>au top</Bold>, des clients <Bold>récurrents</Bold> et faire{" "}
-              <Bold>exploser</Bold> votre chiffre d'affaire&nbsp;!
+              <Bold>grandir</Bold> ensemble votre chiffre d'affaire&nbsp;!
             </Paragraph>
           </PresentationTextWrapper>
-          <PresentationImageProxy></PresentationImageProxy>
+          <PresentationImageWhy>
+            <WhyImage
+              src="https://media3.giphy.com/media/8Iv5lqKwKsZ2g/giphy.gif?cid=ecf05e470e1tq8vdk49kuulwchj7tkaf8cndwyrpatb71kqd&rid=giphy.gif&ct=g?fm=webp "
+              alt="pic"
+            />
+          </PresentationImageWhy>
         </ArticleWrapper>
 
         <ArticleWrapper reverse>
           <PresentationTextWrapper>
             <ArticleTitle>
-              <OutlineTitleWord>Fidélisez</OutlineTitleWord> vos clients
+              Créez une vraie <OutlineTitleWord>connexion</OutlineTitleWord> avec vos
+              clients
             </ArticleTitle>
 
             <Paragraph>
@@ -102,8 +116,8 @@ function Homepage() {
             <Paragraph>Comment ça marche ?</Paragraph>
             <Paragraph>
               C'est simple. On discute ensemble de votre projet pour{" "}
-              <Bold>comprendre</Bold> en profondeur votre <Bold>besoin</Bold>,
-              votre marché et on vous <Bold>conseille</Bold>.
+              <Bold>comprendre</Bold> en profondeur votre besoin, votre marché
+              et on vous <Bold>conseille</Bold>.
             </Paragraph>
             <Paragraph>
               Puis on vous accompagne de <Bold>A à Z</Bold> dans sa réalisation,
@@ -113,20 +127,12 @@ function Homepage() {
               <Bold>l'action</Bold> en achetant votre dernier produit &nbsp;!
             </Paragraph>
           </PresentationTextWrapper>
-          <PresentationImageProxy reverse></PresentationImageProxy>
+          <PresentationImageHow reverse></PresentationImageHow>
         </ArticleWrapper>
 
         {/* Services section */}
-        <section
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            width: "100%",
-            margin: "0 0 20rem",
-          }}
-        >
-          <ArticleTitle margin="0rem 0 10rem">
+        <ServiceSectionWrapper>
+          <ArticleTitle margin="0rem 0 6rem">
             <OutlineTitleWord>
               Création de boutiques e-commerce
             </OutlineTitleWord>{" "}
@@ -187,33 +193,38 @@ function Homepage() {
             </Card>
           </CardWrapper>
 
-          <Paragraph width="60%">
+          <ParagraphServiceSection width="60%">
             Notre expertise nous permet de contrôler tous les aspects de
             l'expérience utilisateur et de mettre en oeuvre une solution avec
             une <Bold>personnalisation to-tale</Bold>.
-          </Paragraph>
-        </section>
+          </ParagraphServiceSection>
+        </ServiceSectionWrapper>
 
         {/*About section */}
         <FounderSection>
-          <PhotoFounderProxy></PhotoFounderProxy>
-          <FounderTextWrapper>
-            <ParagraphAboutFounder>
-              Passionné par l'entrepreneuriat, l'informatique et le commerce,
-              j'ai créé Cosmos&nbsp;: une agence digitale spécialisée dans le
-              développement de sites e-commerce sur Shopify.
-            </ParagraphAboutFounder>
-            <ParagraphAboutFounder>
-              Chez Cosmos, on accompagne les e-commerçants pour développer leur
-              image de marque, fidéliser leurs clients, augmenter leur LTV et
-              leurs ventes.
-            </ParagraphAboutFounder>
-            <ParagraphAboutFounder>
-              On a hâte de vous accompagner pour bâtir votre image de marque et
-              séduire vos prochains clients !
-            </ParagraphAboutFounder>
-            <ParagraphAboutFounder>Younes</ParagraphAboutFounder>
-          </FounderTextWrapper>
+          <ArticleTitle>Un mot sur le créateur</ArticleTitle>
+          <FounderSectionWrapper>
+            <PhotoFounderContainer>
+              <PhotoFounder src={founderImage} />
+            </PhotoFounderContainer>
+            <FounderTextWrapper>
+              <ParagraphAboutFounder>
+                Passionné par l'entrepreneuriat, l'informatique et le commerce,
+                j'ai créé Cosmos&nbsp;: une agence digitale spécialisée dans le
+                développement de sites e-commerce sur Shopify.
+              </ParagraphAboutFounder>
+              <ParagraphAboutFounder>
+                Chez Cosmos, on accompagne les e-commerçants pour développer
+                leur image de marque, fidéliser leurs clients, augmenter leur
+                LTV et leurs ventes.
+              </ParagraphAboutFounder>
+              <ParagraphAboutFounder>
+                On a hâte de vous accompagner pour bâtir votre image de marque
+                et séduire vos prochains clients !
+              </ParagraphAboutFounder>
+              <ParagraphAboutFounder>Younes</ParagraphAboutFounder>
+            </FounderTextWrapper>
+          </FounderSectionWrapper>
         </FounderSection>
 
         <Review
