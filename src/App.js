@@ -26,7 +26,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/achievements" element={<Achievements />} />
-        {/*<Route path="/packs" element={<PacksPage />} />*/}
         <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<ErrorPage />} />
         <Route path="/cgv" element={<CGVPage />} />

@@ -16,7 +16,6 @@ import {
   PresentationImageWhy,
   PresentationImageHow,
   WhyImage,
-  ShadowDiv,
   OutlineTitleWord,
   Bold,
   Paragraph,
@@ -28,6 +27,7 @@ import {
   Card,
   CardImageWrapper,
   CardImageProxy,
+  CardImage,
   CardContent,
   CardContentTitle,
   ParagraphServiceSection,
@@ -39,8 +39,11 @@ import {
   FounderTextWrapper,
 } from "../assets/js/StyledComponents";
 
-import lEngelmann from "../assets/images/louise-engelmann2.webp";
+import lEngelmann from "../assets/images/louise-engelmann.webp";
 import founderImage from "../assets/images/founder-image.webp";
+import comet1 from "../assets/images/animation-elements/comet1.webp";
+import comet2 from "../assets/images/animation-elements/comet2.webp";
+import comet3 from "../assets/images/animation-elements/comet3.webp";
 
 /* Google Analytics */
 ReactGA.pageview("/");
@@ -106,8 +109,8 @@ function Homepage() {
         <ArticleWrapper reverse>
           <PresentationTextWrapper>
             <ArticleTitle>
-              Créez une vraie <OutlineTitleWord>connexion</OutlineTitleWord> avec vos
-              clients
+              Créez une vraie <OutlineTitleWord>connexion</OutlineTitleWord>{" "}
+              avec vos clients
             </ArticleTitle>
 
             <Paragraph>
@@ -142,7 +145,9 @@ function Homepage() {
           <CardWrapper>
             <Card>
               <CardImageWrapper>
-                <CardImageProxy></CardImageProxy>
+                <CardImageProxy>
+                  <CardImage src={comet1} />
+                </CardImageProxy>
               </CardImageWrapper>
               <CardContent>
                 <CardContentTitle>Création de votre boutique</CardContentTitle>
@@ -159,7 +164,7 @@ function Homepage() {
             </Card>
             <Card>
               <CardImageWrapper>
-                <CardImageProxy></CardImageProxy>
+                <CardImageProxy><CardImage src={comet2} /></CardImageProxy>
               </CardImageWrapper>
               <CardContent>
                 <CardContentTitle>
@@ -175,7 +180,7 @@ function Homepage() {
             </Card>
             <Card>
               <CardImageWrapper>
-                <CardImageProxy></CardImageProxy>
+                <CardImageProxy><CardImage src={comet3} /></CardImageProxy>
               </CardImageWrapper>
               <CardContent>
                 <CardContentTitle>

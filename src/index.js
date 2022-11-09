@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 
-import ScrollToTop from "./assets/js/library";
+import { ScrollToTop } from "./assets/js/functionsLibrary";
 
 const rootElement = document.getElementById("root");
 

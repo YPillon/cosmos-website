@@ -7,7 +7,7 @@ import Button from "./Button";
 
 const StyledArticle = styled.article`
   border-radius: 1rem;
-  margin: 7rem 0;
+  margin: 5rem 0 15rem;
   width: auto;
   height: ${(props) => props.articleHeight};
   min-height: 35rem;
@@ -157,8 +157,10 @@ function Article(props) {
           <Button
             text={props.buttonText}
             link={props.buttonLink}
-            size="small"
             blank="true"
+            customMargin="0"
+            shadow
+
           />
         )}
       </div>

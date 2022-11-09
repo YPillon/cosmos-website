@@ -2,6 +2,12 @@ import styled, { keyframes } from "styled-components";
 
 import djokoAndNadal from "../images/djoko-and-nadal.webp";
 
+//Media Queries
+export const device = {
+  phone: "(max-width: 768px)",
+  tablet: "(max-width: 1024px)",
+};
+
 //Animations start
 export const HaloBoxBlue = keyframes`
     0% {
@@ -67,13 +73,52 @@ export const ShakeAnimation = keyframes`
       85% {transform: translateX(10px);}
       90% {transform: translateX(5px);}
     `;
+
+export const UpAndDown = keyframes`
+      50% {transform: translateY(-3rem);}
+      100% {transform: translateY(0;}
+    `;
 //Animations end
 
-//Media Queries
-export const device = {
-  phone: "(max-width: 768px)",
-  tablet: "(max-width: 1024px)",
-};
+//Animations elements start
+
+export const StarCloudContainer = styled.a`
+  display: block;
+  height: 20rem;
+  width: 40rem;
+  position: absolute;
+  right: 4%;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:hover img {
+    -webkit-transform: rotate(360deg);
+  }
+
+  @media ${device.tablet} {
+    display: none;
+  }
+`;
+
+export const UpDownStar = styled.div`
+  height: 4rem;
+  width: 4rem;
+
+  margin-bottom: ${(props) => props.marginBottom || "0"};
+
+  animation: ${UpAndDown} ease-in-out infinite 3s;
+  animation-delay: ${(props) => props.delay || "0s"};
+`;
+
+export const RotateStar = styled.img`
+  height: 100%;
+  width: 100%;
+  transition: transform 1s;
+`;
+
+//Animations elements end
 
 //Components start
 
@@ -122,6 +167,7 @@ export const ArrowContainer = styled.div`
   }
 
   @media ${device.phone} {
+    display: none;
   }
 `;
 
@@ -142,13 +188,13 @@ export const ArrowBranch = styled.span`
 //Header end
 
 export const MainWrapper = styled.main`
-  margin: 0 10%;
+  margin: ${(props) => props.customMargin || "0 10%"};
   text-align: center;
   font-size: 1.8rem;
 `;
 
 export const Separator = styled.div`
-  height: 15rem;
+  height: ${(props) => props.height || "15rem"};
 
   @media ${device.phone} {
     height: 8rem;
@@ -298,10 +344,11 @@ export const Card = styled.article`
   transition: 0.25s linear;
 
   &:hover {
-    /*border-color: ${(props) => props.borderColor || "#2c2e4b"};
-    border: solid 0.2rem;*/
     transform: translateY(-1rem);
     animation: ${HaloBoxBlue} 2s linear infinite;
+  }
+  &:hover img {
+    height: 65%;
   }
   @media ${device.tablet} {
     width: 80%;
@@ -324,9 +371,18 @@ export const CardImageWrapper = styled.div`
 
 export const CardImageProxy = styled.div`
   border-radius: 50%;
-  background: #fa8128;
+  background: white;
   height: 10rem;
   width: 10rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const CardImage = styled.img`
+  height: 60%;
+  width: 65%;
 `;
 
 export const CardContent = styled.div`
@@ -461,6 +517,12 @@ export const StyledButton = styled.button`
   border-radius: 1rem;
   background: ${(props) => props.backgroundColor || "#fa8128"};
   transition: background 0.25s ease-out, transform 0.25s 0.05s ease-out;
+
+  ${(props) =>
+    props.shadow &&
+    `
+    box-shadow: #2c2e4b 2px 2px 5px;
+  `}
 `;
 
 export const StyledButtonWithGlow = styled(StyledButton)`
@@ -518,5 +580,11 @@ export const FooterSpan = styled.span`
 `;
 
 // Footer end
+
+export const CalendlyContainer = styled.div`
+  width: 100%;
+  height: 90rem;
+  padding: 10rem 0;
+`;
 
 //components end

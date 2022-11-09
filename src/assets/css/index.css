@@ -17,7 +17,8 @@ html {
   height: 140%;
   scroll-behavior: smooth;
   overflow-x: hidden;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.4) 60%, white), url(../images/fond-image.webp);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.4) 60%, white),
+    url(../images/fond-image.webp);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -86,25 +87,28 @@ select:focus {
 }
 
 /* Scrollbar styling start */
-::-webkit-scrollbar {
-  width: 1rem;
+@media (min-width: 1025px) {
+  ::-webkit-scrollbar {
+    width: 1rem;
+  }
+
+  ::-webkit-scrollbar:hover {
+    opacity: 1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    border: #2b66e9 2px solid;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #3f008d, #fa8128);
+    border: none;
+  }
 }
 
-::-webkit-scrollbar:hover {
-  opacity: 1;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  border: #2b66e9 2px solid;
-  cursor: pointer;
-  transition: 0.5s ease-in-out;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #3f008d, #fa8128);
-  border: none;
-}
 /* Scrollbar styling end */
 
 /*

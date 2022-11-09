@@ -9,7 +9,7 @@ function AnimatedArrow(props) {
 
   return (
     <a href={props.link}>
-      <ArrowContainer style={{ bottom: isPhone ? "8%" : "" }}>
+      <ArrowContainer>
         <ArrowBranch
           style={{
             transform: "rotate(-45deg) ",

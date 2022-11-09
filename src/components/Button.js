@@ -42,6 +42,7 @@ function Button(props) {
               margin={props.customMargin}
               textColor={props.textColor}
               backgroundColor={props.backgroundColor}
+              shadow={props.shadow}
             >
               {props.text}
             </StyledButton>

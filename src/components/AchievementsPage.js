@@ -4,13 +4,13 @@ import { useMediaQuery } from "@mui/material";
 import ReactGA from "react-ga";
 
 import Header from "./Header";
-import Main from "./Main";
 import Article from "./RealizationArticle";
-import Button from "./Button";
 import Loader from "./Loader";
+import ContactBox from "./ContactBox";
 
 import woodifullBackground from "../assets/images/background-images/woodifull-background.webp";
 import woodifullIncrustation from "../assets/images/woodifull-incrustation.webp";
+import { MainWrapper, Separator } from "../assets/js/StyledComponents";
 
 /* Google Analytics */
 ReactGA.pageview("/achievements");
@@ -33,10 +33,13 @@ function Achievements() {
     <>
       <Loader />
       <Header
-        title="Nos réalisations"
-        subtitle="Découvrez un échantillon de ce que nous avons réalisé."
+        title="Ils nous ont fait confiance"
+        subtitle="Découvrez les entreprises que nous avons accompagnées"
+        buttonText="Découvrir"
+        buttonLink="#main"
       />
-      <Main>
+      <Separator id="main" />
+      <MainWrapper>
         <Article
           img={woodifullImage}
           altTxt="Capture d'écran du site de Woodifull, client de l'agence Cosmos."
@@ -49,8 +52,8 @@ function Achievements() {
           buttonText="Voir le site"
           buttonLink="https://woodifull.com/"
         />
-        <Button link="/contact#main" text="Contactez-nous" internLink="true" />
-      </Main>
+        <ContactBox />
+      </MainWrapper>
     </>
   );
 }

@@ -5,7 +5,17 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Button from "./Button";
 import AnimatedArrow from "./Arrow";
 
-import { HeaderTitle, HeaderSubtitle } from "../assets/js/StyledComponents";
+import {
+  HeaderTitle,
+  HeaderSubtitle,
+  StarCloudContainer,
+  UpDownStar,
+  RotateStar,
+} from "../assets/js/StyledComponents";
+
+import lilStar1 from "../assets/images/animation-elements/lil-star1.webp";
+import lilStar2 from "../assets/images/animation-elements/lil-star2.webp";
+import lilStar4 from "../assets/images/animation-elements/lil-star4.webp";
 
 function Header(props) {
   const isPhone = useMediaQuery("(max-width:768px)");
@@ -39,6 +49,29 @@ function Header(props) {
       )}
 
       {!props.noArrow && <AnimatedArrow link="#main" />}
+      <StarCloudContainer href="#main">
+        <UpDownStar delay="1s" marginBottom="-10rem">
+          <RotateStar src={lilStar1} />
+        </UpDownStar>
+        <UpDownStar delay=".5s" marginBottom="-20rem">
+          <RotateStar src={lilStar4} />
+        </UpDownStar>
+        <UpDownStar delay="1s">
+          <RotateStar src={lilStar4} />
+        </UpDownStar>
+        <UpDownStar>
+          <RotateStar src={lilStar1} />
+        </UpDownStar>
+        <UpDownStar delay="1.5s" marginBottom="-17rem">
+          <RotateStar src={lilStar4} />
+        </UpDownStar>
+        <UpDownStar marginBottom="-25rem">
+          <RotateStar src={lilStar2} />
+        </UpDownStar>
+        <UpDownStar delay=".7s" marginBottom="-5rem">
+          <RotateStar src={lilStar1} />
+        </UpDownStar>
+      </StarCloudContainer>
     </header>
   );
 }

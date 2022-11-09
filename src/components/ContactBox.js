@@ -15,8 +15,8 @@ function ContactBox() {
     <ContactBoxStyled>
       <ContactTitle>Vous avez un projet&nbsp;?</ContactTitle>
       <ParagraphContact>
-        Vous voulez parler développement, image de marque, Shopify ou arts
-        martiaux ?
+        Vous voulez parler développement, image de marque, Shopify ou boxe
+        thaïlandaise ?
       </ParagraphContact>
       <ContactButtonsWrapper>
         <Button
@@ -32,6 +32,7 @@ function ContactBox() {
           textColor="#ffffff"
           backgroundColor="#2b66e9"
           customMargin="1rem"
+          blank
         />
       </ContactButtonsWrapper>
     </ContactBoxStyled>
