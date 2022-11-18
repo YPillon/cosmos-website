@@ -3,10 +3,10 @@ import React, { useEffect } from "react";
 import { useMediaQuery } from "@mui/material";
 import ReactGA from "react-ga";
 
-import Header from "./Header";
-import Article from "./RealizationArticle";
-import Loader from "./Loader";
-import ContactBox from "./ContactBox";
+import Header from "../components/Header";
+import Article from "../components/RealizationArticle";
+import Loader from "../components/Loader";
+import ContactBox from "../components/ContactBox";
 
 import woodifullBackground from "../assets/images/background-images/woodifull-background.webp";
 import woodifullIncrustation from "../assets/images/woodifull-incrustation.webp";
@@ -23,7 +23,7 @@ function Achievements() {
   );
 
   useEffect(() => {
-    document.title = "Nos Réalisations | Cosmos";
+    document.title = "Réalisations - Cosmos";
   }, []);
 
   const woodifullImage =

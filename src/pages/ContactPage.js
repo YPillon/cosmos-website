@@ -5,15 +5,15 @@ import ReactGA from "react-ga";
 
 import { MainWrapper, CalendlyContainer } from "../assets/js/StyledComponents";
 
-import Header from "./Header";
-import Loader from "./Loader";
+import Header from "../components/Header";
+import Loader from "../components/Loader";
 
 /* Google Analytics */
 ReactGA.pageview("/contact");
 
 function ContactPage() {
   useEffect(() => {
-    document.title = "Contactez-nous | Cosmos";
+    document.title = "Contactez-nous - Cosmos";
   }, []);
 
   useScript("https://assets.calendly.com/assets/external/widget.js");

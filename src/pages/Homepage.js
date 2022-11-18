@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import ReactGA from "react-ga";
 
-import Header from "./Header";
-import Review from "./Review";
-import Loader from "./Loader";
-import ContactBox from "./ContactBox";
+import Header from "../components/Header";
+import Review from "../components/Review";
+import Loader from "../components/Loader";
+import ContactBox from "../components/ContactBox";
 
 //Styled Components
 import {
@@ -50,7 +50,7 @@ ReactGA.pageview("/");
 
 function Homepage() {
   useEffect(() => {
-    document.title = "Cosmos, agence web et mobile à Strasbourg";
+    document.title = "Cosmos - Agence Shopify";
   }, []);
 
   return (

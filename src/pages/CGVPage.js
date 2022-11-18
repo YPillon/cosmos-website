@@ -2,7 +2,8 @@ import React from "react";
 
 import styled from "styled-components";
 
-import Loader from "./Loader";
+import Loader from "../components/Loader";
+import NoRobots from "../components/NoRobots";
 
 const MainWrapper = styled.main`
   background: white;
@@ -43,6 +44,7 @@ function CGVPage() {
   return (
     <>
       <Loader />
+      <NoRobots />
       <MainWrapper>
         {" "}
         <Title>Conditions générales de ventes</Title>

@@ -2,7 +2,8 @@ import React from "react";
 
 import styled from "styled-components";
 
-import Loader from "./Loader";
+import Loader from "../components/Loader";
+import NoRobots from "../components/NoRobots";
 
 const MainWrapper = styled.main`
   background: white;
@@ -48,7 +49,8 @@ const List = styled.ul`
 function RGPDPage() {
   return (
     <>
-      <Loader></Loader>
+      <Loader />
+      <NoRobots />
       <MainWrapper>
         <Title>POLITIQUE DE CONFIDENTIALITÉ</Title>
         <Subtitle>www.cosmosagency.fr</Subtitle>
