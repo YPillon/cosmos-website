@@ -10,10 +10,11 @@ import ContactBox from "../components/ContactBox";
 
 import woodifullBackground from "../assets/images/background-images/woodifull-background.webp";
 import woodifullIncrustation from "../assets/images/woodifull-incrustation.webp";
+import exploreBackground from "../assets/images/background-images/explore-background.webp";
+import exploreIncrustation from "../assets/images/explore-incrustation.webp";
 import { MainWrapper, Separator } from "../assets/js/StyledComponents";
 
-/* Google Analytics */
-ReactGA.pageview("/achievements");
+
 
 function Achievements() {
   const isPhone = useMediaQuery("(max-width:768px)");
@@ -26,8 +27,13 @@ function Achievements() {
     document.title = "Réalisations - Cosmos";
   }, []);
 
+  ReactGA.pageview("/realisations");
+
   const woodifullImage =
     isTablet || isPhone || isSmallDesktop ? "" : woodifullIncrustation;
+
+  const exploreImage =
+    isTablet || isPhone || isSmallDesktop ? "" : exploreIncrustation;
 
   return (
     <>
@@ -41,15 +47,30 @@ function Achievements() {
       <Separator id="main" />
       <MainWrapper>
         <Article
+          img={exploreImage}
+          altTxt="Capture d'écran de la boutique de démonstration de Cosmos"
+          imgStyle={{ height: "87%", transform: "translateY(51px)" }}
+          backgroundColor="#8d9ccde6"
+          titleUnderlineColor="#fa8029"
+          backgroundImg={exploreBackground}
+          title="Explore™ : boutique de démo"
+          text="Notre boutique de démonstration reprend les codes d'une marque de vêtements de montagnes et vous donne un exemple de ce qu'il est possible de faire en matière de boutique Shopify."
+          text2="Nous avons créé les visuels, importé les différents produits, mis en page les différentes sections de la boutique et configuré le processeur de paiements (Shopify Payments) et le service tiers de gestion des livraisons (Sendcloud)."
+          text3="Allez y faire un tour ! Comme la boutique est configurée en mode 'test', vous devrez entrer le mot de passe 'cosmos' en arrivant sur la page d'accueil."
+          buttonText="Voir la boutique"
+          buttonLink="https://petit-explorateur.myshopify.com/"
+        />
+        <Article
           img={woodifullImage}
           altTxt="Capture d'écran du site de Woodifull, client de l'agence Cosmos."
           imgStyle={{ height: "87%", transform: "translateY(51px)" }}
-          backgroundColor="orange"
+          backgroundColor="#e6ddc5e6"
+          titleUnderlineColor="#3f008d"
           backgroundImg={woodifullBackground}
           title="Woodifull"
           text="Woodifull est une entreprise alsacienne d'impression sur bois personnalisable et Made in France, proposant un large choix de caisses à vin et d'estampes imprimées pour décorer sa maison."
           text2="Ils ont fait appel à Cosmos dans le cadre de l'amélioration de leur boutique e-commerce."
-          buttonText="Voir le site"
+          buttonText="Voir la boutique"
           buttonLink="https://woodifull.com/"
         />
         <ContactBox />

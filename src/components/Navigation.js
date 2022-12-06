@@ -7,14 +7,15 @@ import logo from "../assets/images/logo.webp";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 const NavSpan = styled.span`
-  font-size: 2.6rem;
-  color: white;
-  -webkit-text-stroke: 0.1rem #2b66e9;
+  font-size: 2.4rem;
+  color: #2b66e9;
+  -webkit-text-stroke: 0.05rem #2c2e4b;
+  font-weight: bold;
   &::before {
     content: "";
     transition: ease-out 0.2s;
     position: absolute;
-    top: 3.7rem;
+    top: 3rem;
     left: -2.5%;
     width: 105%;
     height: 0.25rem;
@@ -51,10 +52,8 @@ function Navigation() {
     height: "9rem",
     padding: "0 5%",
 
-    backgroundColor: "rgba(255, 255, 255, 0.85)",
-    border: "solid 0.1rem #2b66e9",
-    borderTop: "none",
-    boxShadow: "#2b66e9 0px 0.1rem 0.4rem",
+    backgroundColor: "rgba(255, 255, 255, 0.9)",
+    boxShadow: "#2b66e9 0px 0.1rem 0.8rem",
     display: "flex",
     justifyContent: "space-between",
 
@@ -195,11 +194,11 @@ function Navigation() {
         <NavLi
           style={{ margin: isTabletOrPhone ? "0 0 4rem" : "0 0 0 4.5rem" }}
         >
-          <Link to="/achievements" onClick={() => setIsMenuOpen(false)}>
+          <Link to="/realisations" onClick={() => setIsMenuOpen(false)}>
             <NavSpan>Réalisations</NavSpan>
           </Link>
         </NavLi>
-        
+
         <NavLi
           style={{ margin: isTabletOrPhone ? "0 0 4rem" : "0 0 0 4.5rem" }}
         >

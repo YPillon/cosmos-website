@@ -1,6 +1,5 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import ReactGA from "react-ga";
 
 import "./assets/css/index.css";
 
@@ -13,10 +12,6 @@ import ErrorPage from "./pages/ErrorPage";
 import CGVPage from "./pages/CGVPage";
 import RGPDPage from "./pages/RGPDPage";
 
-/* Google Analytics */
-const TRACKING_ID = "UA-219956829-1";
-ReactGA.initialize(TRACKING_ID);
-
 function App() {
   return (
     <div className="App">
@@ -24,7 +19,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/achievements" element={<Achievements />} />
+        <Route path="/realisations" element={<Achievements />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<ErrorPage />} />
         <Route path="/cgv" element={<CGVPage />} />

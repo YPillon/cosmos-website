@@ -1,5 +1,7 @@
 import styled, { keyframes } from "styled-components";
 
+import { Link } from "react-router-dom";
+
 import djokoAndNadal from "../images/djoko-and-nadal.webp";
 
 //Media Queries
@@ -156,7 +158,7 @@ export const HeaderSubtitle = styled.h2`
 export const ArrowContainer = styled.div`
   position: absolute;
   left: 0%;
-  bottom: 5%;
+  bottom: 5rem;
   cursor: pointer;
   width: 7rem;
   height: 7rem;
@@ -338,8 +340,12 @@ export const CardWrapper = styled.div`
   }
 `;
 
+export const ServiceSectionLink = styled(Link)`
+  width: 29.8%;
+`;
+
 export const Card = styled.article`
-  width: ${(props) => props.width || "29.8%"};
+  width: ${(props) => props.width || "100%"};
   border-radius: 2rem;
   transition: 0.25s linear;
 
@@ -529,6 +535,11 @@ export const StyledButtonWithGlow = styled(StyledButton)`
   animation: ${HaloBoxViolet} 3.5s linear infinite;
 `;
 
+export const RealizationButton = styled(StyledButton)`
+  position: absolute;
+  bottom: -4rem;
+`;
+
 // Footer start
 
 export const StyledFooter = styled.footer`
@@ -586,5 +597,49 @@ export const CalendlyContainer = styled.div`
   height: 90rem;
   padding: 10rem 0;
 `;
+
+// Achievements start
+
+export const RealizationArticle = styled.article`
+  border-radius: 1rem;
+  margin: 5rem 0 15rem;
+  width: auto;
+  height: ${(props) => props.articleHeight || "36rem"};
+  min-height: 35rem;
+  background-image: linear-gradient(
+      ${(props) => props.backgroundColor},
+      ${(props) => props.backgroundColor}
+    ),
+    url(${(props) => props.backgroundImg});
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  text-align: left;
+  position: relative;
+
+  @media ${device.phone && device.tablet} {
+    height: auto;
+  }
+`;
+
+export const AchievementsTitle = styled.h1`
+  font-size: 3rem;
+  position: relative;
+  width: fit-content;
+  margin: 1rem 0 3rem;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -1.2rem;
+    left: 0%;
+    width: 10rem;
+    height: 0.3rem;
+    background: white;
+    border: solid ${(props) => props.titleUnderlineColor} 0.2rem;
+    border-radius: 1rem;
+  }
+`;
+
+// Achievements end
 
 //components end

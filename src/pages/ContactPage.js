@@ -8,13 +8,12 @@ import { MainWrapper, CalendlyContainer } from "../assets/js/StyledComponents";
 import Header from "../components/Header";
 import Loader from "../components/Loader";
 
-/* Google Analytics */
-ReactGA.pageview("/contact");
-
 function ContactPage() {
   useEffect(() => {
     document.title = "Contactez-nous - Cosmos";
   }, []);
+
+  ReactGA.pageview("/contact");
 
   useScript("https://assets.calendly.com/assets/external/widget.js");
 

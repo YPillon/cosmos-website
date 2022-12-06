@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import ReactGA from "react-ga";
+import { useLocation } from "react-router-dom";
 
 import Header from "../components/Header";
 import Review from "../components/Review";
@@ -24,6 +25,7 @@ import {
   ListItem,
   ServiceSectionWrapper,
   CardWrapper,
+  ServiceSectionLink,
   Card,
   CardImageWrapper,
   CardImageProxy,
@@ -45,13 +47,15 @@ import comet1 from "../assets/images/animation-elements/comet1.webp";
 import comet2 from "../assets/images/animation-elements/comet2.webp";
 import comet3 from "../assets/images/animation-elements/comet3.webp";
 
-/* Google Analytics */
-ReactGA.pageview("/");
+console.log(window.location.pathname + window.location.search);
 
 function Homepage() {
+  console.log(useLocation().pathname);
   useEffect(() => {
     document.title = "Cosmos - Agence Shopify";
   }, []);
+
+  ReactGA.pageview("/");
 
   return (
     <>
@@ -143,59 +147,75 @@ function Homepage() {
             / <OutlineTitleWord>Customs apps</OutlineTitleWord>
           </ArticleTitle>
           <CardWrapper>
-            <Card>
-              <CardImageWrapper>
-                <CardImageProxy>
-                  <CardImage src={comet1} />
-                </CardImageProxy>
-              </CardImageWrapper>
-              <CardContent>
-                <CardContentTitle>Création de votre boutique</CardContentTitle>
-                <ListWithBulletsOutside>
-                  <ListItem>Choix du thème</ListItem>
-                  <ListItem>Intégration de votre catalogue produit</ListItem>
-                  <ListItem>Configuration du checkout</ListItem>
-                  <ListItem>Mise en place d'une solution de livraison</ListItem>
-                  <ListItem>Optimisation SEO</ListItem>
-                  <ListItem>Hébergement</ListItem>
-                  <ListItem>Maintenance</ListItem>
-                </ListWithBulletsOutside>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardImageWrapper>
-                <CardImageProxy><CardImage src={comet2} /></CardImageProxy>
-              </CardImageWrapper>
-              <CardContent>
-                <CardContentTitle>
-                  Développement de thèmes customisés
-                </CardContentTitle>
-                <ListWithBulletsOutside>
-                  <ListItem>Thème personnalisé</ListItem>
-                  <ListItem>Adapté à votre besoin</ListItem>
-                  <ListItem>Expérience utilisateur unique</ListItem>
-                  <ListItem>Custom storefront</ListItem>
-                </ListWithBulletsOutside>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardImageWrapper>
-                <CardImageProxy><CardImage src={comet3} /></CardImageProxy>
-              </CardImageWrapper>
-              <CardContent>
-                <CardContentTitle>
-                  Développement d'apps Shopify
-                </CardContentTitle>
-                <ListWithBulletsOutside>
-                  <ListItem>Développement de custom apps</ListItem>
-                  <ListItem>
-                    Personnalisation à votre situation précise
-                  </ListItem>
-                  <ListItem>Intégration à votre boutique</ListItem>
-                  <ListItem>Hébergement de l'app</ListItem>
-                </ListWithBulletsOutside>
-              </CardContent>
-            </Card>
+            <ServiceSectionLink to="/contact">
+              <Card>
+                <CardImageWrapper>
+                  <CardImageProxy>
+                    <CardImage src={comet1} />
+                  </CardImageProxy>
+                </CardImageWrapper>
+                <CardContent>
+                  <CardContentTitle>
+                    Création de votre boutique
+                  </CardContentTitle>
+                  <ListWithBulletsOutside>
+                    <ListItem>Choix du thème</ListItem>
+                    <ListItem>Intégration de votre catalogue produit</ListItem>
+                    <ListItem>Configuration du checkout</ListItem>
+                    <ListItem>
+                      Mise en place d'une solution de livraison
+                    </ListItem>
+                    <ListItem>Optimisation SEO</ListItem>
+                    <ListItem>Hébergement</ListItem>
+                    <ListItem>Maintenance</ListItem>
+                  </ListWithBulletsOutside>
+                </CardContent>
+              </Card>
+            </ServiceSectionLink>
+
+            <ServiceSectionLink to="/contact">
+              <Card>
+                <CardImageWrapper>
+                  <CardImageProxy>
+                    <CardImage src={comet2} />
+                  </CardImageProxy>
+                </CardImageWrapper>
+                <CardContent>
+                  <CardContentTitle>
+                    Développement de thèmes customisés
+                  </CardContentTitle>
+                  <ListWithBulletsOutside>
+                    <ListItem>Thème personnalisé</ListItem>
+                    <ListItem>Adapté à votre besoin</ListItem>
+                    <ListItem>Expérience utilisateur unique</ListItem>
+                    <ListItem>Custom storefront</ListItem>
+                  </ListWithBulletsOutside>
+                </CardContent>
+              </Card>
+            </ServiceSectionLink>
+
+            <ServiceSectionLink to="/contact">
+              <Card>
+                <CardImageWrapper>
+                  <CardImageProxy>
+                    <CardImage src={comet3} />
+                  </CardImageProxy>
+                </CardImageWrapper>
+                <CardContent>
+                  <CardContentTitle>
+                    Développement d'apps Shopify
+                  </CardContentTitle>
+                  <ListWithBulletsOutside>
+                    <ListItem>Développement de custom apps</ListItem>
+                    <ListItem>
+                      Personnalisation à votre situation précise
+                    </ListItem>
+                    <ListItem>Intégration à votre boutique</ListItem>
+                    <ListItem>Hébergement de l'app</ListItem>
+                  </ListWithBulletsOutside>
+                </CardContent>
+              </Card>
+            </ServiceSectionLink>
           </CardWrapper>
 
           <ParagraphServiceSection width="60%">

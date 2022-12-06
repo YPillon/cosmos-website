@@ -2,10 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
+import ReactGA from "react-ga";
 
 import { ScrollToTop } from "./assets/js/functionsLibrary";
 
 const rootElement = document.getElementById("root");
+
+const TRACKING_ID = "UA-219956829-1";
+  ReactGA.initialize(TRACKING_ID, {
+    debug: true,
+  });
 
 if (rootElement.hasChildNodes()) {
   ReactDOM.hydrateRoot(
